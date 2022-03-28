@@ -1,0 +1,298 @@
+.top-navbar {
+    padding: 30px 0px;
+}
+
+.search-container {
+    grid-column: 3/7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .form-group {
+        position: relative;
+        width: 100%;
+
+        .search-input {
+            border: none;
+            outline: none;
+            border-radius: 4px;
+            height: 2.5rem;
+            padding-left: 1.6rem;
+            padding-right: 4rem;
+            transition: all .3s;
+            font-style: normal;
+            font-weight: 2500;
+            font-size: 0.9rem;
+            line-height: 100%;
+            color: #444;
+            background: #fff;
+            border: 0.5px solid rgba(184, 190, 206, .5);
+            width: 100%;
+
+            &:focus+.search-btn {
+                background-color: #444;
+                transition: all .3s;
+            }
+
+            &:focus {
+                border: 1px solid #444;
+            }
+        }
+
+        .search-btn {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            cursor: pointer;
+            border: none;
+            outline: none;
+            background: none;
+            height: 100%;
+            width: 4.8rem;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+            transition: all .5s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
+
+.categories {
+    div {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        padding: 1.2rem 0;
+        border-top: 1px solid rgba(184, 190, 206, .25);
+        border-bottom: 1px solid rgba(184, 190, 206, .25);
+
+
+        a {
+            font-style: normal;
+            font-weight: 380;
+            font-size: 1rem;
+            line-height: 100%;
+            color: #444;
+            margin-right: 2rem;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &:hover {
+                font-weight: 500;
+            }
+        }
+
+        overflow-y: hidden;
+        // scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+}
+
+
+//hamburger-start
+
+:root {
+    --animationSpeed: 0.25s;
+}
+
+.hamburger-menu {
+    display: none;
+    padding: 3px;
+    width: 29px;
+}
+
+.bars-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 20px;
+}
+
+.bars-container,
+.bar {
+    cursor: pointer;
+}
+
+.bar {
+    width: 100%;
+    height: 2px;
+    background-color: #222;
+    border-radius: 5px;
+    display: block;
+}
+
+.overlap-container {
+    position: relative;
+    padding: 0 0 0 0;
+    top: -1.3px;
+}
+
+.overlap-container .bar {
+    position: absolute;
+    top: 0;
+}
+
+.bar1,
+.bar4 {
+    transform-origin: center left;
+    position: relative;
+}
+
+
+
+.bars-container2 {
+    position: relative;
+}
+
+.bars-container2 .bar {
+    position: absolute;
+    transform-origin: center;
+}
+
+.bars-container2 .bar1 {
+    top: 5%;
+    animation: makeCross1Backward var(--animationSpeed) ease 0s 1 forwards, moveDownBackward var(--animationSpeed) ease var(--animationSpeed) 1 forwards;
+}
+
+.bars-container2 .bar2 {
+    top: 50%;
+    transition: opacity 0.4s ease;
+}
+
+.bars-container2 .bar3 {
+    top: 95%;
+    animation: makeCross2Backward var(--animationSpeed) ease 0s 1 forwards, moveUpBackward var(--animationSpeed) ease var(--animationSpeed) 1 forwards;
+}
+
+.input-check2:checked+label .bar1 {
+    animation: moveDown var(--animationSpeed) ease 0s 1 forwards, makeCross1 var(--animationSpeed) ease var(--animationSpeed) 1 forwards;
+}
+
+.input-check2:checked+label .bar2 {
+    opacity: 0;
+}
+
+.input-check2:checked+label .bar3 {
+    animation: moveUp var(--animationSpeed) ease 0s 1 forwards,
+        makeCross2 var(--animationSpeed) ease var(--animationSpeed) 1 forwards;
+}
+
+@keyframes moveDown {
+    from {
+        top: 5%;
+        transform: translateY(0);
+    }
+
+    to {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+@keyframes moveDownBackward {
+    from {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    to {
+        top: 5%;
+        transform: translateY(0);
+    }
+}
+
+@keyframes moveUp {
+    from {
+        top: 95%;
+        transform: translateY(0);
+    }
+
+    to {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+@keyframes moveUpBackward {
+    from {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    to {
+        top: 95%;
+        transform: translateY(0);
+    }
+}
+
+@keyframes makeCross1 {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(40deg);
+    }
+}
+
+@keyframes makeCross1Backward {
+    from {
+        top: 50%;
+        transform: rotate(40deg) translateY(-50%);
+    }
+
+    to {
+        top: 50%;
+        transform: rotate(0deg) translateY(-50%);
+    }
+}
+
+@keyframes makeCross2 {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(-40deg);
+    }
+}
+
+@keyframes makeCross2Backward {
+    from {
+        top: 50%;
+        transform: rotate(-40deg) translateY(-50%);
+    }
+
+    to {
+        top: 50%;
+        transform: rotate(0deg) translateY(-50%);
+    }
+}
+
+//hamburger-end
+
+@media only screen and (max-width: 768px) {
+
+    .top-navbar .row {
+        justify-content: space-between;
+
+        .search-container {
+            display: none !important;
+        }
+    }
+
+    .hamburger-menu {
+        display: inline-block;
+    }
+}
+
+@media only screen and (max-width: 992px) {}
