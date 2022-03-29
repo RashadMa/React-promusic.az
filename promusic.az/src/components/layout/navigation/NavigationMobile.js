@@ -1,17 +1,18 @@
 import React from "react";
-import "./Navigation.scss";
 import LogoLight from "../../../assets/images/logo/LogoLight";
 import { BsSearch, BsFacebook, BsInstagram, BsYoutube } from "react-icons/bs";
 import { IoMdPaperPlane } from "react-icons/io";
 import { GrMail } from "react-icons/gr";
+import CategoryListMobile from "../../categories/CategoryListMobile";
 
-export default function NavigationMobile() {
+export default function NavigationMobile({ changeState }) {
   return (
     <div className="mobile-navbar">
       <div className="mobile-container">
         <div className="mobile-menu-header">
           <div className="mobile-logo">
             <LogoLight />
+            <a onClick={changeState} className="close" />
           </div>
         </div>
         <div className="mobile-menu-content">
@@ -32,7 +33,8 @@ export default function NavigationMobile() {
               Track the orders
             </a>
           </div>
-          <ul className="categories">
+          <CategoryListMobile />
+          {/* <ul className="categories">
             <li>
               <a>Keys</a>
             </li>
@@ -64,7 +66,7 @@ export default function NavigationMobile() {
             <li>
               <a>Cables</a>
             </li>
-          </ul>
+          </ul> */}
           <div className="social d-flex justify-content-between">
             <a href="mailto:info@promusic.az">
               <GrMail className="social-icon mail-icon" />

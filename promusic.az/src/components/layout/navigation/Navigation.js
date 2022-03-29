@@ -6,8 +6,9 @@ import { BsSearch, BsPerson } from "react-icons/bs";
 import { FiShoppingBag } from "react-icons/fi";
 import { BiHeart } from "react-icons/bi";
 import LogoDark from "../../../assets/images/logo/LogoDark";
+import CategoryList from "../../categories/CategoryList";
 
-export default function Navigation() {
+export default function Navigation({ changeState }) {
   return (
     <>
       <Container>
@@ -45,40 +46,16 @@ export default function Navigation() {
                 <a className="icon-container" href="/login">
                   <BsPerson className="person-icon nav-icon" />
                 </a>
-                <div className="hamburger-menu hamburger-menu-two">
-                  <input
-                    type="checkbox"
-                    className="input-check2"
-                    id="input-check2"
-                    hidden
-                  />
-                  <label
-                    className="bars-container bars-container2"
-                    for="input-check2"
-                  >
-                    <span className="bar bar1"></span>
-                    <span className="bar bar2"></span>
-                    <span className="bar bar3"></span>
-                  </label>
+                <div onClick={changeState} className="hamburger-menu">
+                  <div></div>
+                  <div></div>
+                  <div></div>
                 </div>
               </Col>
             </Col>
           </Row>
         </div>
-        <Col className="categories" xs="12" lg="9">
-          <div>
-            <a>Keys</a>
-            <a>Guitars</a>
-            <a>Studio</a>
-            <a>Audio</a>
-            <a>Microphones</a>
-            <a>Drums</a>
-            <a>Violin&Chello</a>
-            <a>Winds</a>
-            <a>Folks</a>
-            <a>Cables</a>
-          </div>
-        </Col>
+        <CategoryList />
       </Container>
     </>
   );

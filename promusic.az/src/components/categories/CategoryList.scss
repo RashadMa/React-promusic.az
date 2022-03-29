@@ -1,0 +1,42 @@
+.container .categories {
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-top: 1px solid rgba(184, 190, 206, .25);
+    border-bottom: 1px solid rgba(184, 190, 206, .25);
+    overflow-y: hidden;
+    scrollbar-width: none;
+
+    ul {
+        padding: 0;
+        margin: 0;
+
+        li {
+            list-style: none;
+
+            a {
+                font-style: normal;
+                font-weight: 380;
+                font-size: 1rem;
+                line-height: 100%;
+                color: #444;
+                margin-right: 2rem;
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                &:hover {
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+
+}

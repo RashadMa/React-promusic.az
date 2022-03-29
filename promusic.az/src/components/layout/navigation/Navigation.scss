@@ -13,6 +13,7 @@
         width: 100%;
 
         .search-input {
+            // color: #fff;
             border: none;
             outline: none;
             border-radius: 4px;
@@ -43,6 +44,10 @@
             }
         }
 
+        .mobile-navbar .form-group .search-input {
+            color: #fff !important;
+        }
+
         .search-btn {
             position: absolute;
             top: 50%;
@@ -66,43 +71,6 @@
             }
         }
     }
-}
-
-.categories {
-    div {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        padding: 1.2rem 0;
-        border-top: 1px solid rgba(184, 190, 206, .25);
-        border-bottom: 1px solid rgba(184, 190, 206, .25);
-
-
-        a {
-            font-style: normal;
-            font-weight: 380;
-            font-size: 1rem;
-            line-height: 100%;
-            color: #444;
-            margin-right: 2rem;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            &:hover {
-                font-weight: 500;
-            }
-        }
-
-        overflow-y: hidden;
-        scrollbar-width: none;
-
-        &::-webkit-scrollbar {
-            display: none;
-        }
-    }
-
 }
 
 .nav-icon {
@@ -133,7 +101,6 @@
 
 
 //mobile-navbar
-
 
 .mobile-navbar {
     background: #1b1c1f;
@@ -199,6 +166,7 @@
         position: relative;
 
         .search-input {
+            color: white;
             width: 100%;
             height: 40px;
             background: hsla(0, 0%, 40%, .25);
@@ -259,7 +227,7 @@
 
     .categories {
         margin-bottom: 56px;
-        padding-left: 2rem;
+        padding-left: 1rem;
 
     }
 
@@ -280,188 +248,54 @@
     }
 }
 
+.close {
+    position: absolute;
+    right: 12px;
+    top: 19px;
+    width: 32px;
+    height: 32px;
+    opacity: 0.3;
 
-//hamburger-start
+    &:hover {
 
-:root {
-    --animationSpeed: 0.25s;
+        opacity: 1;
+    }
+
+    &::after,
+    &::before {
+        position: absolute;
+        left: 15px;
+        content: ' ';
+        height: 33px;
+        width: 2px;
+        background-color: rgb(211, 211, 211);
+    }
+
+    &::after {
+        transform: rotate(-45deg);
+
+    }
+
+    &::before {
+        transform: rotate(45deg);
+
+    }
 }
+
+//mobile-navbar-end
 
 .hamburger-menu {
-    display: none;
-    padding: 3px;
-    width: 29px;
-}
-
-.bars-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 20px;
-}
-
-.bars-container,
-.bar {
     cursor: pointer;
-}
+    display: none;
 
-.bar {
-    width: 100%;
-    height: 2px;
-    background-color: #222;
-    border-radius: 5px;
-    display: block;
-}
-
-.overlap-container {
-    position: relative;
-    padding: 0 0 0 0;
-    top: -1.3px;
-}
-
-.overlap-container .bar {
-    position: absolute;
-    top: 0;
-}
-
-.bar1,
-.bar4 {
-    transform-origin: center left;
-    position: relative;
-}
-
-
-
-.bars-container2 {
-    position: relative;
-}
-
-.bars-container2 .bar {
-    position: absolute;
-    transform-origin: center;
-}
-
-.bars-container2 .bar1 {
-    top: 5%;
-    animation: makeCross1Backward var(--animationSpeed) ease 0s 1 forwards, moveDownBackward var(--animationSpeed) ease var(--animationSpeed) 1 forwards;
-}
-
-.bars-container2 .bar2 {
-    top: 50%;
-    transition: opacity 0.4s ease;
-}
-
-.bars-container2 .bar3 {
-    top: 95%;
-    animation: makeCross2Backward var(--animationSpeed) ease 0s 1 forwards, moveUpBackward var(--animationSpeed) ease var(--animationSpeed) 1 forwards;
-}
-
-.input-check2:checked+label .bar1 {
-    animation: moveDown var(--animationSpeed) ease 0s 1 forwards, makeCross1 var(--animationSpeed) ease var(--animationSpeed) 1 forwards;
-}
-
-.input-check2:checked+label .bar2 {
-    opacity: 0;
-}
-
-.input-check2:checked+label .bar3 {
-    animation: moveUp var(--animationSpeed) ease 0s 1 forwards,
-        makeCross2 var(--animationSpeed) ease var(--animationSpeed) 1 forwards;
-}
-
-@keyframes moveDown {
-    from {
-        top: 5%;
-        transform: translateY(0);
-    }
-
-    to {
-        top: 50%;
-        transform: translateY(-50%);
+    div {
+        color: #575f74;
+        width: 25px;
+        height: 2px;
+        background-color: black;
+        margin: 5px 0;
     }
 }
-
-@keyframes moveDownBackward {
-    from {
-        top: 50%;
-        transform: translateY(-50%);
-    }
-
-    to {
-        top: 5%;
-        transform: translateY(0);
-    }
-}
-
-@keyframes moveUp {
-    from {
-        top: 95%;
-        transform: translateY(0);
-    }
-
-    to {
-        top: 50%;
-        transform: translateY(-50%);
-    }
-}
-
-@keyframes moveUpBackward {
-    from {
-        top: 50%;
-        transform: translateY(-50%);
-    }
-
-    to {
-        top: 95%;
-        transform: translateY(0);
-    }
-}
-
-@keyframes makeCross1 {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(40deg);
-    }
-}
-
-@keyframes makeCross1Backward {
-    from {
-        top: 50%;
-        transform: rotate(40deg) translateY(-50%);
-    }
-
-    to {
-        top: 50%;
-        transform: rotate(0deg) translateY(-50%);
-    }
-}
-
-@keyframes makeCross2 {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(-40deg);
-    }
-}
-
-@keyframes makeCross2Backward {
-    from {
-        top: 50%;
-        transform: rotate(-40deg) translateY(-50%);
-    }
-
-    to {
-        top: 50%;
-        transform: rotate(0deg) translateY(-50%);
-    }
-}
-
-//hamburger-end
 
 @media only screen and (max-width: 768px) {
 
@@ -474,8 +308,12 @@
     }
 
     .hamburger-menu {
-        display: inline-block;
+        display: block;
     }
 }
 
-@media only screen and (max-width: 992px) {}
+@media only screen and (max-width: 1200px) {
+    #root .container {
+        width: 95% !important;
+    }
+}
