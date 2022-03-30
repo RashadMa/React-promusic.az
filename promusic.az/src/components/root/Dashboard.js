@@ -1,10 +1,10 @@
 import React from "react";
-import Header from "../layout/navigation/Header";
+import PauseOnHover from "../slider/PauseOnHover";
 
 export default function Dashboard() {
   return (
-    <>
-      <Header />
-    </>
+    <div className="home my-4">
+      <PauseOnHover />
+    </div>
   );
 }
