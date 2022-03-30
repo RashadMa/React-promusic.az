@@ -36,7 +36,7 @@ export default function Navigation({ changeState }) {
               </form>
             </Col>
             <Col xs="7" md="3" className="auth d-flex user-navigation">
-              <Col className="d-flex justify-content-evenly align-items-center">
+              <Col className="auth-items d-flex justify-content-end align-items-center">
                 <a className="icon-container bag" href="/cart">
                   <FiShoppingBag className="bag-icon nav-icon" />
                 </a>

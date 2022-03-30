@@ -2,6 +2,14 @@
     padding: 30px 0px;
 }
 
+.auth{
+    .auth-items{
+        a{
+            padding-left: 8%;
+        }
+    }
+}
+
 .search-container {
     grid-column: 3/7;
     display: flex;
@@ -13,7 +21,7 @@
         width: 100%;
 
         .search-input {
-            // color: #fff;
+            color: #fff;
             border: none;
             outline: none;
             border-radius: 4px;
@@ -285,6 +293,7 @@
 //mobile-navbar-end
 
 .hamburger-menu {
+    padding-left: 8%;
     cursor: pointer;
     display: none;
 
