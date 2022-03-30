@@ -4,58 +4,62 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Col, Container } from "reactstrap";
 import "./Slider.scss";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import * as sliderActions from "../../redux/actions/sliderActions";
 
-export default class PauseOnHover extends Component {
+class PauseOnHover extends Component {
+  componentDidMount() {
+    this.props.actions.getSliders();
+  }
   render() {
     var settings = {
-      // dots: true,
+      dots: false,
       infinite: true,
       slidesToShow: 1,
       slidesToScroll: 1,
       autoplay: true,
-      autoplaySpeed: 200000,
+      autoplaySpeed: 4000,
       pauseOnHover: false,
     };
     return (
       <Container>
         <Col lg="9" md="12">
           <Slider {...settings}>
-            <div className="image-container">
-              <img
-                className="slider-items"
-                src={"https://localhost:5001/images/strings.jpeg"}
-                alt="salam"
-              />
-              <div className="content">
-                <div className="title">Classic Guitars</div>
-                <div className="button">See Products</div>
+            {this.props.sliders.items?.map((slider) => console.log(slider))}
+
+            {this.props.sliders.items?.map((slider) => (
+              <div key={slider.id} className="image-container">
+                <img
+                  className="slider-items"
+                  src={"https://localhost:5001/images/strings.jpeg"}
+                  alt="salam"
+                />
+                <div className="content">
+                  <div className="title">{slider.title}</div>
+                  <div className="button">{slider.btnText}</div>
+                </div>
               </div>
-            </div>
-            <div className="image-container">
-              <img
-                className="slider-items"
-                src={"https://localhost:5001/images/29amps.jpeg"}
-                alt="salam"
-              />
-              <div className="content">
-                <div className="title">Classic Guitars</div>
-                <div className="button">See Products</div>
-              </div>
-            </div>
-            <div className="image-container">
-              <img
-                className="slider-items"
-                src={"https://localhost:5001/images/0amps.jpeg"}
-                alt="salam"
-              />
-              <div className="content">
-                <div className="title">Classic Guitars</div>
-                <div className="button">See Products</div>
-              </div>
-            </div>
+            ))}
           </Slider>
         </Col>
       </Container>
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    sliders: state.sliderListReducer,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: {
+      getSliders: bindActionCreators(sliderActions.getSliders, dispatch),
+    },
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PauseOnHover);
