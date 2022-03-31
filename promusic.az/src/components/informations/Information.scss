@@ -1,10 +1,10 @@
 .info {
     padding-top: 2.5rem;
     padding-bottom: 3.5rem;
-    overflow-y: hidden;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 0 16px;
+    overflow-y: hidden;
 
     &::-webkit-scrollbar {
         display: none;

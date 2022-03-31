@@ -3,6 +3,7 @@ import SliderData from "../slider/data/SliderData";
 import { Container, Row, Col } from "reactstrap";
 import SliderProducts from "../slider/product/SliderProducts";
 import Information from "../informations/Information";
+import CategoryCard from "../categories/categoryCards/CategoryCard";
 
 export default function Dashboard() {
   return (
@@ -17,6 +18,7 @@ export default function Dashboard() {
           </Col>
         </Row>
         <Information />
+        <CategoryCard />
       </Container>
     </div>
   );

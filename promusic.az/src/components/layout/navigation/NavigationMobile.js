@@ -3,7 +3,7 @@ import LogoLight from "../../../assets/images/logo/LogoLight";
 import { BsSearch, BsFacebook, BsInstagram, BsYoutube } from "react-icons/bs";
 import { IoMdPaperPlane } from "react-icons/io";
 import { GrMail } from "react-icons/gr";
-import CategoryListMobile from "../../categories/CategoryListMobile";
+import CategoryListMobile from "../../categories/categoryList/CategoryListMobile";
 
 export default function NavigationMobile({ changeState }) {
   return (

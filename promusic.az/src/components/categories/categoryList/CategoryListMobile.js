@@ -1,8 +1,8 @@
 import React from "react";
 import { connect, useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
-import * as categoryActions from "../../redux/actions/categoryActions";
-import { getCategories } from "../../redux/actions/categoryActions";
+import * as categoryActions from "../../../redux/actions/categoryActions";
+import { getCategories } from "../../../redux/actions/categoryActions";
 
 function CategoryListMobile() {
   const { items } = useSelector((state) => state.categoryListReducer);

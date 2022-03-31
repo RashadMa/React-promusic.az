@@ -2,8 +2,8 @@ import React from "react";
 import { connect, useDispatch, useSelector } from "react-redux";
 import { Col } from "reactstrap";
 import { bindActionCreators } from "redux";
-import * as categoryActions from "../../redux/actions/categoryActions";
-import { getCategories } from "../../redux/actions/categoryActions";
+import * as categoryActions from "../../../redux/actions/categoryActions";
+import { getCategories } from "../../../redux/actions/categoryActions";
 import "./CategoryList.scss";
 
 function CategoryList() {
