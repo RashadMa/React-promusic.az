@@ -1,0 +1,87 @@
+.slider-card {
+    height: 100%;
+    width: 100%;
+    padding: 1.2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    border-radius: 5px;
+    border: none;
+
+    a {
+        text-decoration: none;
+
+        .top {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            margin: 0;
+
+            .img-container {
+                height: 10rem;
+                width: 100%;
+                border-radius: 12px;
+                margin-bottom: 3rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0 0.3rem;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 10px;
+                    object-fit: contain;
+                }
+            }
+
+            .title {
+                font-style: normal;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 16px;
+                color: #222;
+                margin-bottom: 0.6rem
+            }
+
+            .product-name {
+                font-style: normal;
+                font-weight: 300;
+                font-size: 14px;
+                line-height: 14px;
+                color: #1b1c1f;
+            }
+        }
+
+    }
+
+    .bottom .price .new-price {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1rem;
+        line-height: 100%;
+        color: #3a4155;
+        margin-bottom: 0 !important;
+    }
+
+    .dollar-sign {
+        fill: #ff2459 !important;
+    }
+}
+
+.col-lg-3 .slider-inline .slick-arrow {
+    display: none !important;
+}
+
+.side-banner {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+@media only screen and (max-width: 992px) {
+    .side-banner{
+        display: none;
+    }
+}

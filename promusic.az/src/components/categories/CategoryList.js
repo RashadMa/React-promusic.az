@@ -15,7 +15,7 @@ function CategoryList() {
 
   return (
     <>
-      <Col className="categories d-flex" lg="9" md='12'>
+      <Col className="categories d-flex" lg="9">
         <ul className="d-flex">
           {items?.map((item) => (
             <li key={item.id}>

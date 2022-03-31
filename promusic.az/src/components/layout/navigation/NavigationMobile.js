@@ -34,39 +34,6 @@ export default function NavigationMobile({ changeState }) {
             </a>
           </div>
           <CategoryListMobile />
-          {/* <ul className="categories">
-            <li>
-              <a>Keys</a>
-            </li>
-            <li>
-              {" "}
-              <a>Guitars</a>
-            </li>
-            <li>
-              <a>Studio</a>
-            </li>
-            <li>
-              <a>Audio</a>
-            </li>
-            <li>
-              <a>Microphones</a>
-            </li>
-            <li>
-              <a>Drums</a>
-            </li>
-            <li>
-              <a>Violin&Chello</a>
-            </li>
-            <li>
-              <a>Winds</a>
-            </li>
-            <li>
-              <a>Folks</a>
-            </li>
-            <li>
-              <a>Cables</a>
-            </li>
-          </ul> */}
           <div className="social d-flex justify-content-between">
             <a href="mailto:info@promusic.az">
               <GrMail className="social-icon mail-icon" />

@@ -1,0 +1,171 @@
+.image-container {
+    height: 100%;
+    max-height: 20rem;
+    border-radius: 10px;
+    overflow: hidden;
+
+    .slider-items {
+        border-radius: 10px;
+        min-width: 100% !important;
+        height: 100%;
+        min-height: 100% !important;
+        object-fit: cover !important;
+    }
+
+    .content {
+        height: 100%;
+        width: 40%;
+        padding: 0 0 2.4rem 2.4rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-end;
+
+        .title {
+            position: absolute;
+            z-index: 10;
+            top: 47%;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 2.2rem;
+            line-height: 125%;
+            color: #fff;
+            margin-bottom: 3.2rem;
+        }
+
+        .button {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 85%;
+            height: 12%;
+            // width: auto;
+            min-width: 1.6%;
+            line-height: 100%;
+            color: #fff;
+            border: 0.1rem solid #b6c17d;
+            background: radial-gradient(90.16% 143.01% at 15.32% 21.04%, rgba(165, 239, 255, .2) 0, rgba(110, 191, 244, .0447917) 77.08%, rgba(70, 144, 213, 0) 100%);
+            background-blend-mode: overlay, normal;
+            backdrop-filter: blur(80px);
+            border-radius: 3px;
+            transition: all .3s ease;
+            position: absolute;
+            bottom: 12%;
+        }
+    }
+}
+
+
+
+.slider-inline {
+    position: relative;
+
+    .slick-next {
+        display: block;
+        background: radial-gradient(90.16% 143.01% at 15.32% 21.04%, rgba(165, 239, 255, .2) 0, rgba(110, 191, 244, .0447917) 77.08%, rgba(70, 144, 213, 0) 100%);
+        background-blend-mode: overlay, normal;
+        backdrop-filter: blur(80px);
+        border-radius: 16px;
+        background-repeat: no-repeat;
+        background-position: 50%;
+        width: 32px;
+        height: 32px;
+        position: absolute;
+        bottom: 24px;
+        transform: scaleX(-1);
+        right: 62px;
+        position: absolute !important;
+        top: 80% !important;
+        z-index: 10 !important;
+        left: 90% !important;
+
+        &::before {
+            font-size: 16px;
+            line-height: 0;
+            content: "<";
+            color: black;
+        }
+    }
+
+
+    .slick-prev {
+        display: block;
+        background: radial-gradient(90.16% 143.01% at 15.32% 21.04%, rgba(165, 239, 255, .2) 0, rgba(110, 191, 244, .0447917) 77.08%, rgba(70, 144, 213, 0) 100%);
+        background-blend-mode: overlay, normal;
+        backdrop-filter: blur(80px);
+        border-radius: 16px;
+        background-repeat: no-repeat;
+        background-position: 50%;
+        width: 32px;
+        height: 32px;
+        position: absolute;
+        bottom: 24px;
+        transform: scaleX(-1);
+        right: 62px;
+        display: block !important;
+        position: absolute !important;
+        top: 80% !important;
+        z-index: 10 !important;
+        left: 85% !important;
+
+        &::before {
+            font-size: 16px;
+            line-height: 0;
+            content: ">";
+            color: black;
+        }
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .image-container {
+        height: 14rem;
+    }
+
+    .content .button {
+        bottom: 13% !important;
+        min-width: 9rem !important;
+        height: 16% !important;
+    }
+
+    .content .title {
+        top: 30% !important;
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+
+    .content .title {
+        top: 35% !important;
+        font-size: 25px !important;
+    }
+
+    .content .button {
+        bottom: 15% !important;
+        min-width: 9rem !important;
+        height: 2.2rem !important;
+    }
+
+    .slider-inline .slick-next,
+    .slider-inline .slick-prev {
+        display: none !important;
+    }
+
+}
+
+@media only screen and (max-width: 576px) {
+
+    .image-container {
+        height: 11rem;
+    }
+
+    .content .button {
+        bottom: 15% !important;
+        min-width: 4% !important;
+        height: 15% !important;
+    }
+}

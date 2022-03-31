@@ -2,9 +2,9 @@
     padding: 30px 0px;
 }
 
-.auth{
-    .auth-items{
-        a{
+.auth {
+    .auth-items {
+        a {
             padding-left: 8%;
         }
     }
@@ -112,6 +112,13 @@
 
 .mobile-navbar {
     background: #1b1c1f;
+    left: 0;
+    top: 0;
+    overflow-y: auto;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 100;
 
     .mobile-container {
         padding: 24px 16px;
