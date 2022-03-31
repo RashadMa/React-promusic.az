@@ -2,5 +2,6 @@ export default {
   currentState: {},
   categories: [],
   sliders: [],
-  products:[],
+  products: [],
+  informations: [],
 };

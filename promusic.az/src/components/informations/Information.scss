@@ -1,0 +1,47 @@
+.info {
+    padding-top: 2.5rem;
+    padding-bottom: 3.5rem;
+    overflow-y: hidden;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 0 16px;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    .info-card {
+        width: 100%;
+
+        .info-top {
+            margin-bottom: 16px;
+
+            .info-img-box {
+                margin-right: 12px;
+            }
+
+            .info-title {
+                font-style: normal;
+                font-weight: 400;
+                font-size: 0.9rem;
+                line-height: 100%;
+                color: #777f95;
+            }
+        }
+    }
+
+    .info-content {
+        font-style: normal;
+        font-weight: 300;
+        font-size: 0.8rem;
+        line-height: 150%;
+        color: rgba(119, 127, 149, .75);
+    }
+
+}
+
+@media only screen and (max-width: 992px) {
+    .info .info-card {
+        width: 300px !important;
+    }
+}

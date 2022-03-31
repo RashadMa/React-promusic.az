@@ -2,6 +2,7 @@ import React from "react";
 import SliderData from "../slider/data/SliderData";
 import { Container, Row, Col } from "reactstrap";
 import SliderProducts from "../slider/product/SliderProducts";
+import Information from "../informations/Information";
 
 export default function Dashboard() {
   return (
@@ -15,6 +16,7 @@ export default function Dashboard() {
             <SliderProducts />
           </Col>
         </Row>
+        <Information />
       </Container>
     </div>
   );

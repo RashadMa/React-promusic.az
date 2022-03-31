@@ -30,7 +30,7 @@ function CategoryList() {
 
 function mapStateToProps(state) {
   return {
-    categories: state.CategoryListReducer,
+    categories: state.categoryListReducer,
   };
 }
 
