@@ -23,6 +23,7 @@ class SliderProducts extends Component {
       speed: 300,
       slidesToShow: 4,
       slidesToScroll: 1,
+      swipeToSlide: true,
       initialSlide: 0,
       responsive: [
         {
@@ -60,42 +61,45 @@ class SliderProducts extends Component {
           <h1 className="new-products">New Products</h1>
         </Row>
         <Slider {...settings} className="product-slider">
-          {this.props.products.items?.map((item) => (
-            <div className="product-slider-card">
-              <Row>
-                <div className="product-slider-header">
-                  <div className="slider-image">
-                    <img
-                      src={
-                        "https://localhost:5001/images/products/" + item.image
-                      }
-                      alt=""
-                    />
+          {this.props.products.items
+            ?.slice(0)
+            .reverse()
+            .map((item) => (
+              <div key={item.id} className="product-slider-card">
+                <Row>
+                  <div className="product-slider-header">
+                    <div className="slider-image">
+                      <img
+                        src={
+                          "https://localhost:5001/images/products/" + item.image
+                        }
+                        alt=""
+                      />
+                    </div>
                   </div>
-                </div>
-              </Row>
-              <Row>
-                <div className="product-slider-footer">
-                  <Row>
-                    <div className="col-9">
-                      <Row>
-                        <p className="name">{item.name}</p>
-                      </Row>
-                      <Row>
-                        <p className="price">
-                          {item.salePrice}
-                          <BsCurrencyDollar className="dollar-sign" />
-                        </p>
-                      </Row>
-                    </div>
-                    <div className="col-3">
-                      <BiHeartCircle className="wish" />
-                    </div>
-                  </Row>
-                </div>
-              </Row>
-            </div>
-          ))}
+                </Row>
+                <Row>
+                  <div className="product-slider-footer">
+                    <Row>
+                      <div className="col-9">
+                        <Row>
+                          <p className="name">{item.name}</p>
+                        </Row>
+                        <Row>
+                          <p className="price">
+                            {item.salePrice}
+                            <BsCurrencyDollar className="dollar-sign" />
+                          </p>
+                        </Row>
+                      </div>
+                      <div className="col-3">
+                        <BiHeartCircle className="wish" />
+                      </div>
+                    </Row>
+                  </div>
+                </Row>
+              </div>
+            ))}
         </Slider>
       </>
     );

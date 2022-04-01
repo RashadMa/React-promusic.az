@@ -1,0 +1,61 @@
+.brand-slider-header {
+    padding: 3.6rem 0;
+}
+
+.slider-title {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 2.9rem;
+    color: #000;
+}
+
+.brand-slider-card {
+    width: 270px;
+    padding-right: 16px;
+
+    .brand-slider-href {
+        text-decoration: none;
+        cursor: pointer;
+        max-width: 100%;
+        width: 100%;
+        min-width: 240px;
+        height: 8.4rem;
+        background: #fff;
+        border: 1px solid #eaeaea;
+        box-sizing: border-box;
+        border-radius: 3px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 2.4rem;
+
+        .brand-slider-image {
+            width: 5rem;
+            height: 5rem;
+            border-radius: 50%;
+            background: #fff;
+            box-shadow: 0 3px 6px rgb(0 0 0 / 12%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 18px;
+
+            img {
+                width: 4rem;
+                height: 4rem;
+                border-radius: 21px;
+                object-fit: contain;
+            }
+        }
+
+        .brand-name {
+            font-style: normal;
+            font-weight: 300;
+            font-size: 1.1rem;
+            line-height: 125%;
+            color: #000000;
+            margin: unset;
+        }
+    }
+}

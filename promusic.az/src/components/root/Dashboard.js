@@ -5,6 +5,7 @@ import SliderProducts from "../products/productSlider/SliderProducts";
 import Information from "../informations/Information";
 import CategoryCard from "../categories/categoryCards/CategoryCard";
 import FooterProductSlider from "../products/footerProductSlider/FooterProductSlider";
+import BrandSlider from "../brands/brandsSlider/BrandSlider";
 
 export default function Dashboard() {
   return (
@@ -21,6 +22,7 @@ export default function Dashboard() {
         <Information />
         <CategoryCard />
         <FooterProductSlider />
+        <BrandSlider />
       </Container>
     </div>
   );

@@ -4,4 +4,5 @@ export default {
   sliders: [],
   products: [],
   informations: [],
+  brands: [],
 };
