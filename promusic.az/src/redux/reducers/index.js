@@ -5,6 +5,7 @@ import sliderListReducer from "./sliderListReducer";
 import productListReducer from "./productListReducer";
 import informationListReducer from "./informationListReducer";
 import brandListReducer from "./brandListReducer";
+import settingListReducer from "./settingListReducer";
 
 const rootReducer = combineReducers({
   changeStateReducer,
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   productListReducer,
   informationListReducer,
   brandListReducer,
+  settingListReducer,
 });
 
 export default rootReducer;

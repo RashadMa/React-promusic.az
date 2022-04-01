@@ -1,5 +1,5 @@
 import React from "react";
-import "./Information.scss";
+import "./information.scss";
 import { connect, useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
 import { getInformation } from "../../redux/actions/informationActions";

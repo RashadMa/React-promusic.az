@@ -2,25 +2,17 @@ import React, { Component } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "./SliderData.scss";
+import "./sliderData.scss";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as sliderActions from "../../../redux/actions/sliderActions";
+import { settings } from "./settings";
 
 class SliderData extends Component {
   componentDidMount() {
     this.props.actions.getSliders();
   }
   render() {
-    var settings = {
-      dots: false,
-      infinite: true,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      autoplay: true,
-      autoplaySpeed: 4000,
-      pauseOnHover: false,
-    };
     return (
       <>
         <Slider {...settings} className="slider-inline">

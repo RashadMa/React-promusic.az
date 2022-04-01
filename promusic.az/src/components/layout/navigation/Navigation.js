@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Col, Container, Row } from "reactstrap";
-import "./Navigation.scss";
+import "./navigation.scss";
 import { BsSearch, BsPerson } from "react-icons/bs";
 import { FiShoppingBag } from "react-icons/fi";
 import { BiHeart } from "react-icons/bi";

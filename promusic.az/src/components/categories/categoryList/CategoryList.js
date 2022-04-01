@@ -4,7 +4,7 @@ import { Col } from "reactstrap";
 import { bindActionCreators } from "redux";
 import * as categoryActions from "../../../redux/actions/categoryActions";
 import { getCategories } from "../../../redux/actions/categoryActions";
-import "./CategoryList.scss";
+import "./categoryList.scss";
 
 function CategoryList() {
   const { items } = useSelector((state) => state.categoryListReducer);

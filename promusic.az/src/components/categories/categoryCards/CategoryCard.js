@@ -1,10 +1,9 @@
 import React from "react";
 import { connect, useDispatch, useSelector } from "react-redux";
-import { Col } from "reactstrap";
 import { bindActionCreators } from "redux";
 import * as categoryActions from "../../../redux/actions/categoryActions";
 import { getCategories } from "../../../redux/actions/categoryActions";
-import "./CategoryCard.scss";
+import "./categoryCard.scss";
 
 function CategoryCard() {
   const { items } = useSelector((state) => state.categoryListReducer);

@@ -2,26 +2,18 @@ import React, { Component } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "./SliderProducts.scss";
+import "./sliderProducts.scss";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as productActions from "../../../redux/actions/productActions";
 import { BsCurrencyDollar } from "react-icons/bs";
+import { settings } from "./settings";
 
 class SliderProducts extends Component {
   componentDidMount() {
     this.props.actions.getProducts();
   }
   render() {
-    var settings = {
-      dots: false,
-      infinite: true,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      autoplay: true,
-      autoplaySpeed: 4000,
-      pauseOnHover: false,
-    };
     return (
       <>
         <div className="side-banner">
