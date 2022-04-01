@@ -8,14 +8,22 @@
 
     .product-slider {
         padding: 1rem 0;
-        margin-right: 16px;
 
         .product-slider-card {
             display: block;
             height: 357px;
-            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
             border-radius: 6px;
             padding: 0.6rem 0.6rem 2.4rem;
+            border: 1px solid rgba(149, 157, 165, 0.2);
+            // box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+
+            .product-slider-footer{
+                .test{
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+
 
             .price {
                 display: inline-flex;
@@ -63,6 +71,13 @@
         color: rgb(255 124 149);
     }
 
-    .slick-arrow {
-        display: none !important;
+    .product-slider {
+        .slick-slide div {
+            margin-right: 16px;
+        }
+
+
+        .slick-arrow {
+            display: none !important;
+        }
     }

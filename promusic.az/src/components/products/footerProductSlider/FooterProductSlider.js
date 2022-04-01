@@ -80,7 +80,7 @@ class SliderProducts extends Component {
                 </Row>
                 <Row>
                   <div className="product-slider-footer">
-                    <Row>
+                    <div className="d-grid test">
                       <div className="col-9">
                         <Row>
                           <p className="name">{item.name}</p>
@@ -95,7 +95,7 @@ class SliderProducts extends Component {
                       <div className="col-3">
                         <BiHeartCircle className="wish" />
                       </div>
-                    </Row>
+                    </div>
                   </div>
                 </Row>
               </div>
