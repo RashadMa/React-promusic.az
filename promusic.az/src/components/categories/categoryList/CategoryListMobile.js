@@ -14,8 +14,8 @@ function CategoryListMobile() {
   return (
     <ul className="categories">
       {items?.map((item) => (
-        <li>
-          <a key={item.id}>{item.name}</a>
+        <li key={item.id}>
+          <a>{item.name}</a>
         </li>
       ))}
     </ul>

@@ -3,6 +3,7 @@
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 24px 16px;
     overflow-y: hidden;
+    padding-bottom: 5rem;
 
     &::-webkit-scrollbar {
         display: none;
