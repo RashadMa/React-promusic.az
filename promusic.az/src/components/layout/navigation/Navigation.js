@@ -5,7 +5,7 @@ import "./navigation.scss";
 import { BsSearch, BsPerson } from "react-icons/bs";
 import { FiShoppingBag } from "react-icons/fi";
 import { BiHeart } from "react-icons/bi";
-import LogoDark from "../../../assets/images/logo/LogoDark";
+import LogoDark from "../../common/keyValuePair/LogoDark";
 import CategoryList from "../../categories/categoryList/CategoryList";
 
 export default function Navigation({ changeState }) {

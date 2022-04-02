@@ -1,5 +1,5 @@
 import React from "react";
-import LogoLight from "../../../assets/images/logo/LogoLight";
+import LogoLight from "../../common/keyValuePair/LogoLight";
 import { BsSearch, BsFacebook, BsInstagram, BsYoutube } from "react-icons/bs";
 import { IoMdPaperPlane } from "react-icons/io";
 import { GrMail } from "react-icons/gr";

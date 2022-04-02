@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function LogoDark() {
+function LogoDark() {
   return (
     <>
       <svg
@@ -50,3 +50,5 @@ export default function LogoDark() {
     </>
   );
 }
+
+export default LogoDark;
