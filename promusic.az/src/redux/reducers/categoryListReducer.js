@@ -3,7 +3,7 @@ import initialState from "./initialState";
 
 export default function categoryListReducer(
   state = initialState.categories,
-  action
+  action,
 ) {
   switch (action.type) {
     case actionTypes.GET_CATEGORY_SUCCESS:

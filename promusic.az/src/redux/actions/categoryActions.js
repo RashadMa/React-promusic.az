@@ -1,10 +1,17 @@
 import * as actionTypes from "./actionTypes";
 
-export function changeCategory(category) {
-  return { type: actionTypes.CHANGE_CATEGORY, payload: category };
+// export function changeCategory(category) {
+//   return { type: actionTypes.CHANGE_CATEGORY, payload: category };
+// }
+
+export const changeCategory = (category) => (dispatch) => {
+  dispatch({
+    type: actionTypes.CHANGE_CATEGORY,
+    payload: category
+  })
 }
 
-export function getCategoriesSuccess(categories) {
+function getCategoriesSuccess(categories) {
   return { type: actionTypes.GET_CATEGORY_SUCCESS, payload: categories };
 }
 
