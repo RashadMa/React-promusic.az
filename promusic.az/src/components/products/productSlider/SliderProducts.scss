@@ -80,8 +80,25 @@
 .side-banner {
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
+
+.disc {
+    height: 3rem;
+    width: 100%;
+    background: #1b1c1f;
+    border-radius: 3px 3px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 100%;
+    color: #fff;
+    padding-left: 1.5rem;
+}
+
 @media only screen and (max-width: 992px) {
-    .side-banner{
+    .side-banner {
         display: none;
     }
 }
