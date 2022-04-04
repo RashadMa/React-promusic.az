@@ -1,0 +1,41 @@
+.accordion-button {
+    background: #1b1c1f !important;
+    color: white !important;
+    font-size: 16px !important;
+
+    &::after {
+        fill: white !important;
+    }
+}
+
+.content {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 170%;
+    color: rgba(12, 13, 30, 0.5);
+    padding-bottom: 1rem;
+    padding-left: 0.5rem;
+    padding-top: 1rem;
+    max-height: 40rem;
+    overflow: auto;
+
+    .custom-checkbox {
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 14px;
+        color: #1b1c1f;
+
+        .custom-checkbox-input {
+            width: 14px;
+            height: 14px;
+            margin-right: 12px;
+            background-color: transparent;
+        }
+    }
+}

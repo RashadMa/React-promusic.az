@@ -1,0 +1,26 @@
+.sidebar-category-card {
+    background: #fff;
+    box-shadow: 0 0 24px rgb(27 28 31 / 6%);
+    border-radius: 6px;
+    padding: 2.7rem;
+    margin-bottom: 2.7rem;
+
+    .custom-checkbox {
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 14px;
+        color: #1b1c1f;
+
+        .custom-checkbox-input {
+            width: 14px;
+            height: 14px;
+            margin-right: 12px;
+            background-color: transparent;
+        }
+    }
+}
