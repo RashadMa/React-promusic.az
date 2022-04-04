@@ -20,7 +20,7 @@ function CategoryList() {
             <li key={item.id}>
               <p
                 onClick={() => {
-                  history.push(`/category/${item.id}`);
+                  history.push(`/categories/${item.id}`);
                 }}
               >
                 {item.name}

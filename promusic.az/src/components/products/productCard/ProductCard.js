@@ -1,31 +1,31 @@
-import React, { Component } from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import "./footerProductSlider.scss";
-import { bindActionCreators } from "redux";
-import { connect } from "react-redux";
-import * as productActions from "../../../redux/actions/productActions";
-import { BsCurrencyDollar } from "react-icons/bs";
+import React from "react";
 import { BiHeartCircle } from "react-icons/bi";
+import { BsCurrencyDollar } from "react-icons/bs";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import { Row } from "reactstrap";
-import { settings } from "./settings";
+import { getProducts } from "../../../redux/actions/productActions";
+import "./productCard.scss";
 
-class SliderProducts extends Component {
-  componentDidMount() {
-    this.props.actions.getProducts();
-  }
-  render() {
-    return (
-      <>
-        <Row>
-          <h1 className="new-products">New Products</h1>
-        </Row>
-        <Slider {...settings} className="product-slider">
-          {this.props.products.items
-            ?.slice(0)
-            .reverse()
-            .map((item) => (
+function ProductCard() {
+  const { id: subCategoryId } = useParams();
+  const { items } = useSelector((state) => state.productListReducer);
+  const dispatch = useDispatch();
+  React.useEffect(() => {
+    getProducts()(dispatch);
+  }, [dispatch]);
+  const filterProducts = () => {
+    return items?.filter(
+      (item) => item.subCategoryId === Number(subCategoryId)
+    );
+  };
+  const productList = filterProducts();
+  return (
+    <>
+      {items ? (
+        <div className="d-grid cards my-5">
+          {productList.length ? (
+            productList.map((item) => (
               <div key={item.id} className="product-slider-card">
                 <Row>
                   <div className="product-slider-header">
@@ -60,25 +60,16 @@ class SliderProducts extends Component {
                   </div>
                 </Row>
               </div>
-            ))}
-        </Slider>
-      </>
-    );
-  }
+            ))
+          ) : (
+            <h4>Empty</h4>
+          )}
+        </div>
+      ) : (
+        <h1>Loading...</h1>
+      )}
+    </>
+  );
 }
 
-function mapStateToProps(state) {
-  return {
-    products: state.productListReducer,
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: {
-      getProducts: bindActionCreators(productActions.getProducts, dispatch),
-    },
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(SliderProducts);
+export default ProductCard;

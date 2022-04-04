@@ -28,7 +28,7 @@ function CategoryCard() {
               <div className="category-list">
                 <h3
                   onClick={() => {
-                    history.push(`/category/${category.id}`, category.name);
+                    history.push(`/categories/${category.id}`);
                   }}
                   className="title"
                 >
