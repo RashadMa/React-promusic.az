@@ -17,7 +17,7 @@ class DiscountedProductsSlider extends Component {
     return (
       <>
         <div className="disc">Those at a discount</div>
-        <div className="side-banner">
+        <div className="side-banner mb-3">
           <Slider {...settings} className="slider-inline">
             {this.props.products.items?.map((product) => (
               <div key={product.id} className="slider-card">
@@ -32,7 +32,7 @@ class DiscountedProductsSlider extends Component {
                         alt=""
                       />
                     </div>
-                    <h1 className="title">Our Products</h1>
+                    <h1 className="title">Discounted Products</h1>
                     <p className="product-name">{product.name}</p>
                   </div>
                 </a>

@@ -3,6 +3,7 @@ import { Col, Container, Row } from "reactstrap";
 import SubCategories from "../categories/subCategories/SubCategories";
 import BrandSlider from "../brands/brandsSlider/BrandSlider";
 import DiscountedProductsSlider from "../products/productSlider/DiscountedProductsSlider";
+import NewProductsSide from "../products/newProductsSide/NewProductsSide";
 
 function Categories() {
   return (
@@ -13,6 +14,7 @@ function Categories() {
         </Col>
         <Col lg="3">
           <DiscountedProductsSlider />
+          <NewProductsSide />
         </Col>
       </Row>
       <BrandSlider />

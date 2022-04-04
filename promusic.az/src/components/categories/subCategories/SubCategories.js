@@ -27,7 +27,7 @@ function SubCategories() {
         <div className="sub-category-cards d-grid">
           {subCategories.length ? (
             subCategories.map((item) => (
-              <div className="sub-category-item">
+              <div key={item.id} className="sub-category-item">
                 <div className="sub-category-top">
                   <img
                     className="sub-category-img"
