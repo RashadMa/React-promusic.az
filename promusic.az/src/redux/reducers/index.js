@@ -6,6 +6,7 @@ import informationListReducer from "./informationListReducer";
 import brandListReducer from "./brandListReducer";
 import settingListReducer from "./settingListReducer";
 import changeCategoryReducer from "./changeCategoryReducer";
+import subCategoryListReducer from "./subCategoryListReducer";
 
 const rootReducer = combineReducers({
   categoryListReducer,
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   brandListReducer,
   settingListReducer,
   changeCategoryReducer,
+  subCategoryListReducer,
 });
 
 export default rootReducer;

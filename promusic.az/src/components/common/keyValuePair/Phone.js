@@ -1,7 +1,5 @@
 import React from "react";
-import { connect, useDispatch, useSelector } from "react-redux";
-import { bindActionCreators } from "redux";
-import * as settingActions from "../../../redux/actions/settingActions";
+import { useDispatch, useSelector } from "react-redux";
 import { getSettings } from "../../../redux/actions/settingActions";
 
 function LogoDark() {
@@ -22,18 +20,4 @@ function LogoDark() {
   );
 }
 
-function mapStateToProps(state) {
-  return {
-    settings: state.settingListReducer,
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: {
-      getSettings: bindActionCreators(settingActions.getSettings, dispatch),
-    },
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(LogoDark);
+export default LogoDark;

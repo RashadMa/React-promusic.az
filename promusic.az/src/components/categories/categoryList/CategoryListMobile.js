@@ -1,7 +1,5 @@
 import React from "react";
-import { connect, useDispatch, useSelector } from "react-redux";
-import { bindActionCreators } from "redux";
-import * as categoryActions from "../../../redux/actions/categoryActions";
+import { useDispatch, useSelector } from "react-redux";
 import { getCategories } from "../../../redux/actions/categoryActions";
 
 function CategoryListMobile() {
@@ -22,21 +20,4 @@ function CategoryListMobile() {
   );
 }
 
-function mapStateToProps(state) {
-  return {
-    categories: state.CategoryListReducer,
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: {
-      getCategories: bindActionCreators(
-        categoryActions.getCategories,
-        dispatch
-      ),
-    },
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(CategoryListMobile);
+export default CategoryListMobile;

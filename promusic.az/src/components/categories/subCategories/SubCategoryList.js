@@ -1,9 +1,9 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
 import { getSubCategories } from "../../../redux/actions/categoryActions";
-function CategoryDetail() {
-  const { id: categoryId } = useParams();
+
+function SubCategoryList(props) {
+  const categoryId = props.id;
   const { items } = useSelector((state) => state.subCategoryListReducer);
   const dispatch = useDispatch();
 
@@ -15,7 +15,6 @@ function CategoryDetail() {
     return items?.filter((item) => item.categoryId === Number(categoryId));
   };
   const subCategories = filterSubCategories();
-
   return (
     <>
       {items ? (
@@ -27,7 +26,7 @@ function CategoryDetail() {
               </li>
             ))
           ) : (
-            <h1>Empty</h1>
+            <h1 style={{ color: "white" }}>Empty</h1>
           )}
         </ul>
       ) : (
@@ -37,4 +36,4 @@ function CategoryDetail() {
   );
 }
 
-export default CategoryDetail;
+export default SubCategoryList;

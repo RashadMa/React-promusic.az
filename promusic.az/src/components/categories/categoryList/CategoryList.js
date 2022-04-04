@@ -1,8 +1,7 @@
 import React from "react";
-import { connect, useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { Col } from "reactstrap";
-import { bindActionCreators } from "redux";
-import * as categoryActions from "../../../redux/actions/categoryActions";
 import { getCategories } from "../../../redux/actions/categoryActions";
 import "./categoryList.scss";
 
@@ -12,14 +11,20 @@ function CategoryList() {
   React.useEffect(() => {
     getCategories()(dispatch);
   }, [dispatch]);
-
+  const history = useHistory();
   return (
     <>
       <Col className="categories d-flex" lg="9">
         <ul className="d-flex">
           {items?.map((item) => (
             <li key={item.id}>
-              <a>{item.name}</a>
+              <p
+                onClick={() => {
+                  history.push(`/category/${item.id}`);
+                }}
+              >
+                {item.name}
+              </p>
             </li>
           ))}
         </ul>
@@ -28,21 +33,4 @@ function CategoryList() {
   );
 }
 
-function mapStateToProps(state) {
-  return {
-    categories: state.categoryListReducer,
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: {
-      getCategories: bindActionCreators(
-        categoryActions.getCategories,
-        dispatch
-      ),
-    },
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(CategoryList);
+export default CategoryList;

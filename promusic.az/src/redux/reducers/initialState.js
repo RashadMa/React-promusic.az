@@ -5,4 +5,5 @@ export default {
   informations: [],
   brands: [],
   settings: [],
+  subCategories: [],
 };

@@ -12,6 +12,28 @@
     .category-card-item {
         position: relative;
 
+        .category-card-btn {
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 100%;
+            color: #fff;
+            height: 2.4rem;
+            background: radial-gradient(90.16% 143.01% at 15.32% 21.04%, rgba(165, 239, 255, 0.2) 0, rgba(110, 191, 244, 0.0447917) 77.08%, rgba(70, 144, 213, 0) 100%);
+            background-blend-mode: overlay, normal;
+            backdrop-filter: blur(80px);
+            border-radius: 3px;
+            padding: 0 2.4rem;
+            border: 0.2rem solid transparent;
+            min-width: 10.3rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            bottom: 2rem;
+            left: 1.1rem;
+            z-index: 100;
+            position: absolute;
+        }
+
         .overlay {
             position: absolute;
             top: 0;
@@ -32,26 +54,11 @@
             top: 0;
             z-index: 25;
 
-            .category-card-btn {
-                font-style: normal;
-                font-weight: 400;
-                font-size: 14px;
-                line-height: 100%;
-                color: #fff;
-                height: 2.4rem;
-                background: radial-gradient(90.16% 143.01% at 15.32% 21.04%, rgba(165, 239, 255, 0.2) 0, rgba(110, 191, 244, 0.0447917) 77.08%, rgba(70, 144, 213, 0) 100%);
-                background-blend-mode: overlay, normal;
-                backdrop-filter: blur(80px);
-                border-radius: 3px;
-                padding: 0 2.4rem;
-                border: 0.2rem solid transparent;
-                min-width: 10.3rem;
-                transition: all 0.3s ease;
-                text-decoration: none;
-            }
+            
         }
     }
 }
+
 
 .category-cards .category-card-item .category-container .category-list {
     .title {
