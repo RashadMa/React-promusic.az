@@ -1,0 +1,53 @@
+.range-slider {
+    form {
+        display: flex;
+        flex-direction: column;
+        padding-right: 2.4rem;
+
+        .range {
+            margin-bottom: 1rem;
+        }
+
+        .input-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .first {
+                margin-right: 1.6rem;
+            }
+
+            input {
+                width: 100%;
+                height: 3.2rem;
+                border: 1px solid rgba(5, 6, 30, 0.1);
+                box-sizing: border-box;
+                border-radius: 4px;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 0.9rem;
+                line-height: 170%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                color: rgba(5, 6, 30, 0.5);
+                outline: none;
+            }
+        }
+
+        .submit-btn {
+            background-color: #ffda93;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 1rem;
+            line-height: 100%;
+            color: #fff;
+            border-radius: 3px;
+            margin-top: 12px;
+            height: 3rem;
+            width: 100%;
+            border: none;
+        }
+    }
+}

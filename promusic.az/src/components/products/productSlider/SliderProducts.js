@@ -3,22 +3,16 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./sliderProducts.scss";
-import { bindActionCreators } from "redux";
-import { connect } from "react-redux";
-import * as productActions from "../../../redux/actions/productActions";
 import { BsCurrencyDollar } from "react-icons/bs";
 import { settings } from "./settings";
 
 class SliderProducts extends Component {
-  componentDidMount() {
-    this.props.actions.getProducts();
-  }
   render() {
     return (
       <>
         <div className="side-banner">
           <Slider {...settings} className="slider-inline">
-            {this.props.products.items?.map((product) => (
+            {this.props.products?.map((product) => (
               <div key={product.id} className="slider-card">
                 <a href="/">
                   <div className="top">
@@ -50,18 +44,4 @@ class SliderProducts extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    products: state.productListReducer,
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: {
-      getProducts: bindActionCreators(productActions.getProducts, dispatch),
-    },
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(SliderProducts);
+export default SliderProducts;

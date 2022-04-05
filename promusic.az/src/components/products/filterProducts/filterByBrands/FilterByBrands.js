@@ -13,17 +13,10 @@ function FilterByBrands() {
   return (
     <>
       <div>
-        <Accordion defaultActiveKey="0">
+        <Accordion className="acc" defaultActiveKey="0">
           <Accordion.Item eventKey="0">
             <Accordion.Header>Brands</Accordion.Header>
             <Accordion.Body>
-              {/* <div className="filter-by-price">
-  <div className="header">
-    <div className="header-wrapper">
-      <h4>Brands</h4>
-    </div>
-    <button className="btn"></button>
-  </div> */}
               <div className="content">
                 {items?.slice(0, 4).map((item) => (
                   <label
@@ -41,7 +34,6 @@ function FilterByBrands() {
                   </label>
                 ))}
               </div>
-              {/* </div>  */}
             </Accordion.Body>
           </Accordion.Item>
         </Accordion>

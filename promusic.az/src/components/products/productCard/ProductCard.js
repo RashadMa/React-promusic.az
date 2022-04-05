@@ -1,28 +1,22 @@
 import React from "react";
 import { BiHeartCircle } from "react-icons/bi";
 import { BsCurrencyDollar } from "react-icons/bs";
-import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Row } from "reactstrap";
-import { getProducts } from "../../../redux/actions/productActions";
 import "./productCard.scss";
 
-function ProductCard() {
+function ProductCard(props) {
   const { id: subCategoryId } = useParams();
-  const { items } = useSelector((state) => state.productListReducer);
-  const dispatch = useDispatch();
-  React.useEffect(() => {
-    getProducts()(dispatch);
-  }, [dispatch]);
   const filterProducts = () => {
-    return items?.filter(
+    return props.items?.filter(
       (item) => item.subCategoryId === Number(subCategoryId)
     );
   };
+  // console.log(props.items);
   const productList = filterProducts();
   return (
     <>
-      {items ? (
+      {props.items ? (
         <div className="d-grid cards my-5">
           {productList.length ? (
             productList.map((item) => (

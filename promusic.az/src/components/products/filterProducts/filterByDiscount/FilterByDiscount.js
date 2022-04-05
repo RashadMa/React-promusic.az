@@ -1,24 +1,28 @@
 import React from "react";
 
-function FilterByDiscount() {
+function FilterByDiscount(props) {
+  console.log(props.filterProds);
   return (
     <>
       <div className="sidebar-category-card">
-        <label htmlFor="is-discount" className="custom-checkbox">
-          <input
-            type="checkbox"
-            id="is-discount"
-            className="custom-checkbox-input"
-          />
-          Discounted product
-        </label>
         <label htmlFor="is-new" className="custom-checkbox">
           <input
-            type="checkbox"
+            onChange={() => props.filterProds()}
+            type="radio"
             id="is-new"
+            name="isNew"
             className="custom-checkbox-input"
           />
           New products
+        </label>
+        <label htmlFor="is-disc" className="custom-checkbox">
+          <input
+            type="radio"
+            id="is-disc"
+            name="isNew"
+            className="custom-checkbox-input"
+          />
+          Discounted products
         </label>
       </div>
     </>

@@ -6,8 +6,15 @@ import Information from "../informations/Information";
 import CategoryCard from "../categories/categoryCards/CategoryCard";
 import FooterProductSlider from "../products/footerProductSlider/FooterProductSlider";
 import BrandSlider from "../brands/brandsSlider/BrandSlider";
+import { useDispatch, useSelector } from "react-redux";
+import { getProducts } from "../../redux/actions/productActions";
 
 export default function Dashboard() {
+  const { items } = useSelector((state) => state.productListReducer);
+  const dispatch = useDispatch();
+  React.useEffect(() => {
+    getProducts()(dispatch);
+  }, [dispatch]);
   return (
     <div className="home my-4">
       <Container>
@@ -16,12 +23,12 @@ export default function Dashboard() {
             <SliderData />
           </Col>
           <Col lg="3">
-            <SliderProducts />
+            <SliderProducts products={items} />
           </Col>
         </Row>
         <Information />
         <CategoryCard />
-        <FooterProductSlider />
+        <FooterProductSlider products={items} />
         <BrandSlider />
       </Container>
     </div>

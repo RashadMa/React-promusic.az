@@ -3,18 +3,12 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./footerProductSlider.scss";
-import { bindActionCreators } from "redux";
-import { connect } from "react-redux";
-import * as productActions from "../../../redux/actions/productActions";
 import { BsCurrencyDollar } from "react-icons/bs";
 import { BiHeartCircle } from "react-icons/bi";
 import { Row } from "reactstrap";
 import { settings } from "./settings";
 
 class SliderProducts extends Component {
-  componentDidMount() {
-    this.props.actions.getProducts();
-  }
   render() {
     return (
       <>
@@ -22,7 +16,7 @@ class SliderProducts extends Component {
           <h1 className="new-products">New Products</h1>
         </Row>
         <Slider {...settings} className="product-slider">
-          {this.props.products.items
+          {this.props.products
             ?.slice(0)
             .reverse()
             .map((item) => (
@@ -67,18 +61,4 @@ class SliderProducts extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    products: state.productListReducer,
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: {
-      getProducts: bindActionCreators(productActions.getProducts, dispatch),
-    },
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(SliderProducts);
+export default SliderProducts;

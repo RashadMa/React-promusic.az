@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { getSubCategories } from "../../../redux/actions/categoryActions";
 
 function SubCategoryList(props) {
@@ -22,7 +23,7 @@ function SubCategoryList(props) {
           {subCategories.length ? (
             subCategories.map((item) => (
               <li key={item.id} className="cat-list-item">
-                <a href="/product-list?categories=5">{item.name}</a>
+                <Link to={`/products/${item.id}`}>{item.name}</Link>
               </li>
             ))
           ) : (
