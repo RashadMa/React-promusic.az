@@ -1,71 +1,56 @@
-import React, { Component } from "react";
+import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./sliderProducts.scss";
-import { bindActionCreators } from "redux";
-import { connect } from "react-redux";
-import * as productActions from "../../../redux/actions/productActions";
 import { BsCurrencyDollar } from "react-icons/bs";
 import { settings } from "./settings";
+import { useDispatch, useSelector } from "react-redux";
+import { getProducts } from "../../../redux/actions/productActions";
+import { Link } from "react-router-dom";
 
-class DiscountedProductsSlider extends Component {
-  componentDidMount() {
-    this.props.actions.getProducts();
-  }
-  render() {
-    return (
-      <>
-        <div className="disc">Those at a discount</div>
-        <div className="side-banner mb-3">
-          <Slider {...settings} className="slider-inline">
-            {this.props.products.items?.map((product) => (
-              <div key={product.id} className="slider-card">
-                <a href="/">
-                  <div className="top">
-                    <div className="img-container">
-                      <img
-                        src={
-                          "https://localhost:5001/images/products/" +
-                          product.image
-                        }
-                        alt=""
-                      />
-                    </div>
-                    <h1 className="title">Discounted Products</h1>
-                    <p className="product-name">{product.name}</p>
+function DiscountedProductsSlider() {
+  const { items } = useSelector((state) => state.productListReducer);
+  const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    getProducts()(dispatch);
+  }, [dispatch]);
+
+  return (
+    <>
+      <div className="disc">Those at a discount</div>
+      <div className="side-banner mb-3">
+        <Slider {...settings} className="slider-inline">
+          {items?.map((product) => (
+            <div key={product.id} className="slider-card">
+              <Link to={`/product/${product.id}`}>
+                <div className="top">
+                  <div className="img-container">
+                    <img
+                      src={
+                        "https://localhost:5001/images/products/" +
+                        product.image
+                      }
+                      alt=""
+                    />
                   </div>
-                </a>
-                <div className="bottom d-flex align-items-center justify-content-start">
-                  <div className="price d-flex">
-                    <p className="new-price">{product.salePrice}</p>
-                    <BsCurrencyDollar className="dollar-sign" />
-                  </div>
+                  <h1 className="title">Discounted Products</h1>
+                  <p className="product-name">{product.name}</p>
+                </div>
+              </Link>
+              <div className="bottom d-flex align-items-center justify-content-start">
+                <div className="price d-flex">
+                  <p className="new-price">{product.salePrice}</p>
+                  <BsCurrencyDollar className="dollar-sign" />
                 </div>
               </div>
-            ))}
-          </Slider>
-        </div>
-      </>
-    );
-  }
+            </div>
+          ))}
+        </Slider>
+      </div>
+    </>
+  );
 }
 
-function mapStateToProps(state) {
-  return {
-    products: state.productListReducer,
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: {
-      getProducts: bindActionCreators(productActions.getProducts, dispatch),
-    },
-  };
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(DiscountedProductsSlider);
+export default DiscountedProductsSlider;

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../../../redux/actions/productActions";
 import "./newProductsSide.scss";
 import { BsCurrencyDollar } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 function NewProductsSide() {
   const { items } = useSelector((state) => state.productListReducer);
@@ -21,8 +22,8 @@ function NewProductsSide() {
             .reverse()
             .map((item) => (
               <li key={item.id} className="cat-product-list-item">
-                <a
-                  href="/"
+                <Link
+                  to={`/product/${item.id}`}
                   className="d-flex align-items-center justify-content-between"
                 >
                   <div className="product-detail">
@@ -42,7 +43,7 @@ function NewProductsSide() {
                       }
                     />
                   </div>
-                </a>
+                </Link>
               </li>
             ))}
         </ul>
