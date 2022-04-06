@@ -1,18 +1,18 @@
 import React from "react";
 import { BiHeartCircle } from "react-icons/bi";
 import { BsCurrencyDollar } from "react-icons/bs";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { Row } from "reactstrap";
 import "./productCard.scss";
 
 function ProductCard(props) {
   const { id: subCategoryId } = useParams();
+  const history = useHistory();
   const filterProducts = () => {
     return props.items?.filter(
       (item) => item.subCategoryId === Number(subCategoryId)
     );
   };
-  // console.log(props.items);
   const productList = filterProducts();
   return (
     <>
@@ -20,39 +20,48 @@ function ProductCard(props) {
         <div className="d-grid cards my-5">
           {productList.length ? (
             productList.map((item) => (
-              <div key={item.id} className="product-slider-card">
-                <Row>
-                  <div className="product-slider-header">
-                    <div className="slider-image">
-                      <img
-                        src={
-                          "https://localhost:5001/images/products/" + item.image
-                        }
-                        alt=""
-                      />
-                    </div>
-                  </div>
-                </Row>
-                <Row>
-                  <div className="product-slider-footer">
-                    <div className="d-flex test">
-                      <div className="col-10">
-                        <Row>
-                          <p className="name">{item.name}</p>
-                        </Row>
-                        <Row>
-                          <p className="price">
-                            {item.salePrice}
-                            <BsCurrencyDollar className="dollar-sign" />
-                          </p>
-                        </Row>
-                      </div>
-                      <div className="col-2">
-                        <BiHeartCircle className="wish" />
+              <div
+                onClick={() => {
+                  history.push(`/product/${item.id}`);
+                }}
+                key={item.id}
+                className="none"
+              >
+                <div className="product-slider-card">
+                  <Row>
+                    <div className="product-slider-header">
+                      <div className="slider-image">
+                        <img
+                          src={
+                            "https://localhost:5001/images/products/" +
+                            item.image
+                          }
+                          alt=""
+                        />
                       </div>
                     </div>
-                  </div>
-                </Row>
+                  </Row>
+                  <Row>
+                    <div className="product-slider-footer">
+                      <div className="d-flex test">
+                        <div className="col-10">
+                          <Row>
+                            <p className="name">{item.name}</p>
+                          </Row>
+                          <Row>
+                            <p className="price">
+                              {item.salePrice}
+                              <BsCurrencyDollar className="dollar-sign" />
+                            </p>
+                          </Row>
+                        </div>
+                        <div className="col-2">
+                          <BiHeartCircle className="wish" />
+                        </div>
+                      </div>
+                    </div>
+                  </Row>
+                </div>
               </div>
             ))
           ) : (

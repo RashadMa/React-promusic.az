@@ -5,7 +5,7 @@ import { Col } from "reactstrap";
 import { getCategories } from "../../../redux/actions/categoryActions";
 import "./categoryList.scss";
 
-function CategoryList() {
+function CategoryList(props) {
   const { items } = useSelector((state) => state.categoryListReducer);
   const dispatch = useDispatch();
   React.useEffect(() => {

@@ -16,7 +16,7 @@ function Products() {
     return items?.filter((item) => item.discountPercent > 0);
   };
   const showNewProducts = () => {
-    return items?.slice(0,3);
+    return items?.slice(0, 3);
   };
   // const showByBrands = () => {
   //   ret

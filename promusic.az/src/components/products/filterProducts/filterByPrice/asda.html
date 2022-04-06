@@ -1,0 +1,13 @@
+<div className="range-slider">
+    <form>
+        <div className="range"
+            style="position: relative; user-select: none; height: 4px; width: auto; background: rgb(255, 218, 147);">
+            <button role="slider" aria-valuemin="0" aria-valuemax="7500" aria-valuenow="0"
+                style="position: absolute; top: 50%; left: 0%; z-index: 0; transform: translate(-50%, -50%); width: 14px; height: 14px; outline: none; border-radius: 100%; background: rgb(255, 218, 147); border: none;"></button><button
+                role="slider" aria-valuemin="0" aria-valuemax="7500" aria-valuenow="7500"
+                style="position: absolute; top: 50%; left: 100%; z-index: 0; transform: translate(-50%, -50%); width: 14px; height: 14px; outline: none; border-radius: 100%; background: rgb(255, 218, 147); border: none;"></button>
+        </div>
+        <div className="input-container"><input type="number" value="0" /><input type="number" value="7500" /></div>
+        <button className="submit-btn" type="button">Search</button>
+    </form>
+</div>

@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCategories } from "../../../redux/actions/categoryActions";
 
-function CategoryListMobile() {
+function CategoryListMobile(props) {
   const { items } = useSelector((state) => state.categoryListReducer);
   const dispatch = useDispatch();
   React.useEffect(() => {

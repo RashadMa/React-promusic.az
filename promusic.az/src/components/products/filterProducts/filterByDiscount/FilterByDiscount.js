@@ -1,7 +1,6 @@
 import React from "react";
 
 function FilterByDiscount(props) {
-  console.log(props.filterProds);
   return (
     <>
       <div className="sidebar-category-card">
