@@ -7,6 +7,7 @@ import "./brandSlider.scss";
 import { Row } from "reactstrap";
 import { settings } from "./settings";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 function BrandSlider() {
   const { items } = useSelector((state) => state.brandListReducer);
@@ -15,6 +16,7 @@ function BrandSlider() {
   React.useEffect(() => {
     getBrands()(dispatch);
   }, [dispatch]);
+  const history = useHistory();
   return (
     <>
       <div className="brand-slider-header">
@@ -23,8 +25,14 @@ function BrandSlider() {
         </Row>
         <Slider {...settings} className="brand-slider">
           {items?.map((item) => (
-            <div key={item.id} className="brand-slider-card">
-              <a className="brand-slider-href" href="/">
+            <div
+              onClick={() => {
+                history.push(`/brand/${item.id}`);
+              }}
+              key={item.id}
+              className="brand-slider-card"
+            >
+              <div className="brand-slider-href">
                 <div className="brand-slider-image">
                   <img
                     src={"https://localhost:5001/images/brands/" + item.image}
@@ -34,7 +42,7 @@ function BrandSlider() {
                 <div className="brand-slider-content">
                   <h6 className="brand-name">{item.name}</h6>
                 </div>
-              </a>
+              </div>
             </div>
           ))}
         </Slider>
