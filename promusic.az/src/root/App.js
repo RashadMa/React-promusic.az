@@ -4,6 +4,7 @@ import BrandDetail from "../components/brands/brandDetail/BrandDetail";
 import NotFound from "../components/common/notFound/NotFound";
 import Footer from "../components/layout/footer/Footer";
 import Header from "../components/layout/navigation/Header";
+import About from "../components/pages/About";
 import Categories from "../components/pages/Categories";
 import Dashboard from "../components/pages/Dashboard";
 import Products from "../components/pages/Products";
@@ -20,6 +21,7 @@ function App() {
         <Route path="/products/:id" exact component={Products} />
         <Route path="/product/:id" exact component={ProductDetail} />
         <Route path="/brand/:id" exact component={BrandDetail} />
+        <Route path="/about" exact component={About} />
         <Route path="/" component={NotFound} />
       </Switch>
       <Footer />

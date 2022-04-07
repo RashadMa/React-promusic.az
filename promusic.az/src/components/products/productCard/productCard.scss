@@ -52,6 +52,22 @@
     }
 }
 
+.prod-brand {
+    color: #989eaf;
+    text-decoration: none;
+}
+
+.comment {
+    &::after {
+        content: "";
+        width: 1px;
+        height: 18px;
+        background: #c4c4c4;
+        border-radius: 1px;
+        margin: 0 12px;
+    }
+}
+
 .wish {
     font-size: 2.3rem;
     color: rgb(255 124 149);

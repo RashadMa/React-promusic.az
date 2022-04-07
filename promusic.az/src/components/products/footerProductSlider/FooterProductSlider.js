@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./footerProductSlider.scss";
-import { BsCurrencyDollar } from "react-icons/bs";
+import { BsCurrencyDollar, BsCart3 } from "react-icons/bs";
 import { BiHeartCircle } from "react-icons/bi";
 import { Row } from "reactstrap";
 import { settings } from "./settings";
@@ -52,7 +52,7 @@ function SliderProducts(props) {
                       </Row>
                     </div>
                     <div className="col-2">
-                      <BiHeartCircle className="wish" />
+                      <BsCart3 className="wish" />
                     </div>
                   </div>
                 </div>

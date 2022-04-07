@@ -36,12 +36,12 @@ function BrandDetail() {
             <h5 className="brand-title">{item.name}</h5>
           </div>
           <div className="about d-flex justify-content-center text-align-center">
-            <Link onClick={changeState} className="brand-products">
+            <div onClick={changeState} className="brand-products">
               All brands
-            </Link>
-            <Link onClick={changeState} className="about-brand">
+            </div>
+            <div onClick={changeState} className="about-brand">
               About the brand
-            </Link>
+            </div>
           </div>
           <div className="tab-contents">
             {state ? (

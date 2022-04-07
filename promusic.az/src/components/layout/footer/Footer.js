@@ -8,6 +8,7 @@ import { BsFacebook, BsInstagram, BsYoutube } from "react-icons/bs";
 import Mail from "../../common/keyValuePair/Mail";
 import Phone from "../../common/keyValuePair/Phone";
 import MasterCard from "../../common/keyValuePair/MasterCard";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -53,7 +54,7 @@ function Footer() {
             <div className="footer-bottom-inner">
               <MasterCard />
               <div className="footer-bottom-content">
-                <a href="/about">About</a>
+                <Link to={'/about'}>About</Link>
                 <a href="/blog">Blog</a>
                 <a href="/contact">Contact</a>
               </div>

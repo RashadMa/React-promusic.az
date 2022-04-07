@@ -25,7 +25,7 @@ function ProductDetail() {
   const prod = filterProducts();
   return (
     <Container className="detail my-5">
-      {prod?.map((item) => (
+      {prod?.slice(0.1).map((item) => (
         <Row key={item.id}>
           <Col lg="6">
             <div className="image-slave">
@@ -132,14 +132,15 @@ function ProductDetail() {
                 <AiFillStar className="star" />
               </div>
               <div className="comment">0 Comment</div>
+              <Link to={`/brand/${item.brand.id}`} className="prod-brand">{item.brand.name}</Link>
             </div>
             <div className="product-price">
               <div className="price-section">
                 <div className="prices">
                   <div className="new-price">
                     {item.discountPercent > 0
-                      ? `${(<del>{item.salePrice}</del>)}` +
-                        item.salePrice * (1 - item.discountPercent / 100)
+                      ? <><del className="d-price">{item.salePrice}</del>
+                      {item.salePrice * (1 - item.discountPercent / 100)}</>
                       : item.salePrice}
                     <BiDollar />
                   </div>

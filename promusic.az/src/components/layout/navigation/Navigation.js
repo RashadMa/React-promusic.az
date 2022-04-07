@@ -4,7 +4,7 @@ import { Col, Container, Row } from "reactstrap";
 import "./navigation.scss";
 import { BsSearch, BsPerson } from "react-icons/bs";
 import { FiShoppingBag } from "react-icons/fi";
-import { BiHeart } from "react-icons/bi";
+// import { BiHeart } from "react-icons/bi";
 import LogoDark from "../../common/keyValuePair/LogoDark";
 import CategoryList from "../../categories/categoryList/CategoryList";
 
@@ -40,9 +40,9 @@ export default function Navigation({ changeState }) {
                 <a className="icon-container bag" href="/cart">
                   <FiShoppingBag className="bag-icon nav-icon" />
                 </a>
-                <a className="icon-container heart" href="/favorite">
+                {/* <a className="icon-container heart" href="/favorite">
                   <BiHeart className="heart-icon nav-icon" />
-                </a>
+                </a> */}
                 <a className="icon-container" href="/login">
                   <BsPerson className="person-icon nav-icon" />
                 </a>

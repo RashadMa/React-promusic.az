@@ -1,6 +1,6 @@
 import React from "react";
 import { BiHeartCircle } from "react-icons/bi";
-import { BsCurrencyDollar } from "react-icons/bs";
+import { BsCurrencyDollar, BsCart3 } from "react-icons/bs";
 import { useHistory, useParams } from "react-router-dom";
 import { Row } from "reactstrap";
 import "./productCard.scss";
@@ -56,7 +56,7 @@ function ProductCard(props) {
                           </Row>
                         </div>
                         <div className="col-2">
-                          <BiHeartCircle className="wish" />
+                          <BsCart3 className="wish" />
                         </div>
                       </div>
                     </div>

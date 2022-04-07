@@ -19,7 +19,9 @@ function SubCategories() {
   return (
     <>
       <div className="category-name mb-4">
-        <h4 className="sub-category-page mb-2">Guitars</h4>
+        {subCategories?.slice(0, 1).map((sub) => (
+          <h4 key={sub.id} className="sub-category-page mb-2">{sub.category.name}</h4>
+        ))}
       </div>
       {items ? (
         <div className="sub-category-cards d-grid">
