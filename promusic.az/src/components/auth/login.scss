@@ -1,0 +1,66 @@
+.img-content {
+    background-image: url("../../assets/images/background/login.png");
+    width: 100%;
+    height: 500px;
+    background-repeat: no-repeat;
+}
+
+.title {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2.2rem;
+    line-height: 100%;
+    color: #3a4155;
+    margin-bottom: 12px;
+}
+
+.subtitle {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 150%;
+    color: #989eaf;
+    margin-bottom: 1.2rem;
+}
+
+.email-input,
+.password-input {
+    padding: 1.075rem 0.75rem !important;
+}
+
+.submit-btn-login {
+    font-style: normal;
+    font-weight: 300;
+    line-height: 100%;
+    display: flex;
+    align-items: center;
+    height: 4.5rem;
+    width: 100%;
+    background: #444;
+    border-radius: 6px;
+    font-size: 1.8rem;
+    color: #fff;
+    justify-content: center;
+}
+
+.bottom-login-class {
+    margin-top: 4rem;
+    font-size: 18px;
+    color: #1b1c1f;
+}
+
+.to-register {
+    color: #ff4c4c;
+    margin-left: 6px;
+    text-decoration: none;
+
+    &:hover {
+        color: #d33636;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .responsive {
+        display: none;
+    }
+}

@@ -43,9 +43,9 @@ export default function Navigation({ changeState }) {
                 {/* <a className="icon-container heart" href="/favorite">
                   <BiHeart className="heart-icon nav-icon" />
                 </a> */}
-                <a className="icon-container" href="/login">
+                <Link to={"/login"} className="icon-container">
                   <BsPerson className="person-icon nav-icon" />
-                </a>
+                </Link>
                 <div onClick={changeState} className="hamburger-menu">
                   <div></div>
                   <div></div>

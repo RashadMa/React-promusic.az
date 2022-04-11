@@ -1,5 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
+import Login from "../components/auth/Login";
+import Register from "../components/auth/Register";
 import BrandDetail from "../components/brands/brandDetail/BrandDetail";
 import NotFound from "../components/common/notFound/NotFound";
 import Footer from "../components/layout/footer/Footer";
@@ -22,6 +24,8 @@ function App() {
         <Route path="/product/:id" exact component={ProductDetail} />
         <Route path="/brand/:id" exact component={BrandDetail} />
         <Route path="/about" exact component={About} />
+        <Route path="/login" exact component={Login} />
+        <Route path="/register" exact component={Register} />
         <Route path="/" component={NotFound} />
       </Switch>
       <Footer />
