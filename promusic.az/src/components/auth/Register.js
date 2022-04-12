@@ -1,10 +1,30 @@
-import React from "react";
-import { Row, Container, Col } from "react-bootstrap";
+import React, { useState } from "react";
+import { Row, Container, Col, Button, Form } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Input, Label } from "reactstrap";
+import { signUp } from "../../redux/actions/authActions";
 import "./login.scss";
 
 function Register() {
+  const dispatch = useDispatch();
+  const { push } = useHistory();
+  const [user, setUser] = useState({
+    name: "",
+    userName: "",
+    email: "",
+    password: "",
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // console.log("user", user);
+    // signUp(user, push)
+    dispatch(signUp(user, push));
+    // setUser({ name: "", email: "", password: "" });
+  };
+
   return (
     <div className="my-5">
       <Container>
@@ -13,12 +33,12 @@ function Register() {
             <div className="img-content"></div>
           </Col>
           <Col lg="6">
-            <h1 class="title">Create a new account</h1>
-            <h3 class="subtitle">
+            <h1 className="title">Create a new account</h1>
+            <h3 className="subtitle">
               Log in to your account by confirming your mobile number and easily
               manage your orders.
             </h3>
-            <form>
+            <Form onSubmit={handleSubmit}>
               <Row>
                 <Col lg="6">
                   <Label for="email">E-mail</Label>
@@ -26,8 +46,13 @@ function Register() {
                     className="email-input"
                     type="email"
                     name="email"
+                    autoComplete="false"
                     id="email"
                     placeholder="example@example.com"
+                    defaultValue={user.email}
+                    onChange={(e) =>
+                      setUser({ ...user, email: e.target.value })
+                    }
                   />
                 </Col>
                 <Col lg="6">
@@ -36,8 +61,13 @@ function Register() {
                     className="email-input"
                     type="text"
                     name="username"
+                    autoComplete="false"
                     id="username"
                     placeholder="Your username"
+                    defaultValue={user.userName}
+                    onChange={(e) =>
+                      setUser({ ...user, userName: e.target.value })
+                    }
                   />
                 </Col>
               </Row>
@@ -48,9 +78,12 @@ function Register() {
                   <Input
                     className="email-input"
                     type="text"
+                    autoComplete="false"
                     name="name"
                     id="name"
                     placeholder="Your name"
+                    defaultValue={user.name}
+                    onChange={(e) => setUser({ ...user, name: e.target.value })}
                   />
                 </Col>
                 <Col lg="6">
@@ -59,15 +92,20 @@ function Register() {
                     className="password-input mb-4"
                     type="password"
                     name="password"
+                    autoComplete="false"
                     id="password"
                     placeholder="Passowrd"
+                    defaultValue={user.password}
+                    onChange={(e) =>
+                      setUser({ ...user, password: e.target.value })
+                    }
                   />
                 </Col>
               </Row>
 
-              <button className="submit-btn-login">Register</button>
-            </form>
-            <div class="bottom-login-class">
+              <button className="submit-btn-login" type="submit">Register</button>
+            </Form>
+            <div className="bottom-login-class">
               Do you have an account?{" "}
               <Link className="to-register" to={"/login"}>
                 Login

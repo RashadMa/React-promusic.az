@@ -11,11 +11,15 @@ import Categories from "../components/pages/Categories";
 import Dashboard from "../components/pages/Dashboard";
 import Products from "../components/pages/Products";
 import ProductDetail from "../components/products/productCard/ProductDetail";
+import { BrowserRouter as Router } from "react-router-dom";
+
 import "./common.scss";
+
+
 
 function App() {
   return (
-    <>
+    <Router>
       <Header />
       <Switch>
         <Route path="/" exact component={Dashboard} />
@@ -29,7 +33,7 @@ function App() {
         <Route path="/" component={NotFound} />
       </Switch>
       <Footer />
-    </>
+    </Router>
   );
 }
 
