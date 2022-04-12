@@ -36,12 +36,9 @@ export default function Navigation({ changeState }) {
             </Col>
             <Col xs="7" md="3" className="auth d-flex user-navigation">
               <Col className="auth-items d-flex justify-content-end align-items-center">
-                <a className="icon-container bag" href="/cart">
+                <Link to={"/cart"} className="icon-container bag">
                   <FiShoppingBag className="bag-icon nav-icon" />
-                </a>
-                {/* <a className="icon-container heart" href="/favorite">
-                  <BiHeart className="heart-icon nav-icon" />
-                </a> */}
+                </Link>
                 <Link to={"/login"} className="icon-container">
                   <BsPerson className="person-icon nav-icon" />
                 </Link>

@@ -12,7 +12,6 @@ export const signUp = (user, push) => (dispatch) => {
       });
       dispatch({ type: "SIGN_UP" });
       push("/login");
-      console.log("EBENI SIKIM");
     })
     .catch((error) => {
       console.log(user, "hey");
@@ -38,7 +37,6 @@ export const signIn = (creds, push) => {
       })
       .catch((error) => {
         console.log(error.response);
-
         toast.error(error.response?.data, {
           position: toast.POSITION.BOTTOM_RIGHT,
         });

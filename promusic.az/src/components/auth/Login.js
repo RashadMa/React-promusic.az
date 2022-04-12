@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Input, Label } from "reactstrap";
-import { signIn, signUp } from "../../redux/actions/authActions";
+import { signIn } from "../../redux/actions/authActions";
 import "./login.scss";
 
 function Login() {

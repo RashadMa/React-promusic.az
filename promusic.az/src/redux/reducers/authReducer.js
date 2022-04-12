@@ -12,9 +12,6 @@ const initialState = {
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case "SIGN_UP":
-      toast("Welcome...", {
-        position: toast.POSITION.BOTTOM_RIGHT,
-      });
       return toast("Welcome...", {
         position: toast.POSITION.BOTTOM_RIGHT,
       });

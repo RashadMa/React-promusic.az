@@ -19,10 +19,7 @@ function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log("user", user);
-    // signUp(user, push)
     dispatch(signUp(user, push));
-    // setUser({ name: "", email: "", password: "" });
   };
 
   return (
@@ -103,7 +100,9 @@ function Register() {
                 </Col>
               </Row>
 
-              <button className="submit-btn-login" type="submit">Register</button>
+              <button className="submit-btn-login" type="submit">
+                Register
+              </button>
             </Form>
             <div className="bottom-login-class">
               Do you have an account?{" "}
