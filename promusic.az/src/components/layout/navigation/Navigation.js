@@ -7,7 +7,6 @@ import { FiShoppingBag } from "react-icons/fi";
 import LogoDark from "../../common/keyValuePair/LogoDark";
 import CategoryList from "../../categories/categoryList/CategoryList";
 import { useSelector } from "react-redux";
-import { cartReducer } from "../../../redux/reducers/cartReducer";
 
 export default function Navigation({ changeState }) {
   const { cartItems } = useSelector((state) => state.cartReducer);

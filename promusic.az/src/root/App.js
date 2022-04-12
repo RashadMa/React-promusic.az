@@ -12,9 +12,8 @@ import Dashboard from "../components/pages/Dashboard";
 import Products from "../components/pages/Products";
 import ProductDetail from "../components/products/productCard/ProductDetail";
 import { BrowserRouter as Router } from "react-router-dom";
-
 import "./common.scss";
-import Basket from "../components/basket/Basket";
+import Cart from "../components/basket/Cart";
 
 function App() {
   return (
@@ -29,7 +28,7 @@ function App() {
         <Route path="/about" exact component={About} />
         <Route path="/login" exact component={Login} />
         <Route path="/register" exact component={Register} />
-        <Route path="/cart" exact component={Basket} />
+        <Route path="/cart" exact component={Cart} />
         <Route path="/" component={NotFound} />
       </Switch>
       <Footer />

@@ -7,8 +7,6 @@
     .empty-cart-ellipse {
         width: 260px;
         height: 198.59px;
-        // margin-left: auto;
-        // margin-right: auto;
         margin-bottom: 23px;
     }
 
@@ -33,8 +31,6 @@
 
     .empty-cart-button {
         display: block;
-        // margin-left: auto;
-        // margin-right: auto;
         width: 17rem;
         height: 4rem;
         background: #ff4c4c;
@@ -48,5 +44,182 @@
         outline: none;
         border: none;
         text-decoration: none;
+    }
+}
+
+.basket-page {
+    .basket-page-header {
+        background-image: url("../../assets/images/background/cart-bg.e1e974a9.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 100%;
+        height: 20rem;
+        border-radius: 6px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding: 2.4rem;
+        margin-bottom: 5.6rem;
+
+        .basket-page-info {
+            .title {
+                font-style: normal;
+                font-weight: 400;
+                font-size: 2.2rem;
+                line-height: 100%;
+                color: #fff;
+                margin-bottom: 6px;
+            }
+
+            .customer-code {
+                font-style: normal;
+                font-weight: 400;
+                font-size: 0.7rem;
+                line-height: 100%;
+                color: #fff;
+                margin: 0;
+            }
+        }
+    }
+}
+
+.white {
+    color: white;
+}
+
+.cart-table {
+    display: flex;
+    align-items: center;
+    padding: 1.4rem 0;
+    border-bottom: 1px solid rgba(208, 212, 222, .25);
+
+    .im-container {
+        background: #fff;
+        box-shadow: 0 0 3px rgb(0 0 0 / 6%);
+        border-radius: 3px;
+        width: 7rem;
+        height: 7rem;
+        margin-right: 2.4rem;
+
+        img {
+            border-radius: 3px;
+            width: 7rem;
+            height: 7rem;
+            object-fit: contain;
+        }
+    }
+}
+
+.table-content {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: relative;
+
+    .ordered-product {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+
+        .product-name {
+            font-style: normal;
+            font-weight: 300;
+            font-size: 1.4rem;
+            line-height: 125%;
+            color: #3a4155;
+            margin-bottom: 12px;
+
+        }
+
+        .quantity {
+            font-style: normal;
+            font-weight: 200;
+            font-size: 0.9rem;
+            line-height: 125%;
+            color: #3a4155;
+        }
+
+        .count-price {
+            font-style: normal;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 18px;
+            color: #ff2459;
+        }
+    }
+
+    .cart-table-functions {
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column;
+        width: fit-content;
+
+        .cart-table-delete-quantity {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .quantity-container {
+                display: flex;
+                margin-right: 12px;
+
+                .crease {
+                    width: 8px;
+                    height: 8px;
+                }
+
+                .minus {
+                    width: 2rem;
+                    height: 2rem;
+                    border-radius: 3px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    border: none;
+                }
+
+                .quantity {
+                    min-width: 2rem;
+                    height: 2rem;
+                    border: 1px solid #989eaf;
+                    box-sizing: border-box;
+                    border-radius: 3px;
+                    font-style: normal;
+                    font-weight: 300;
+                    font-size: 1rem;
+                    line-height: 125%;
+                    color: #3a4155;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .plus {
+                    width: 2rem;
+                    height: 2rem;
+                    border-radius: 3px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    border: none;
+                }
+            }
+
+            .delete-btn {
+                background: linear-gradient(224.46deg, #fff, rgba(91, 102, 132, 0) 95.54%);
+                border-radius: 3px;
+                width: 28px;
+                height: 28px;
+                cursor: pointer;
+                transition: all .3s;
+                border: none;
+                outline: none;
+            }
+        }
     }
 }
