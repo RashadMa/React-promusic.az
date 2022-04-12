@@ -11,10 +11,18 @@ import { getProducts } from "../../redux/actions/productActions";
 
 export default function Dashboard() {
   const { items } = useSelector((state) => state.productListReducer);
+  const { cartItems } = useSelector((state) => state.cartReducer);
   const dispatch = useDispatch();
   React.useEffect(() => {
     getProducts()(dispatch);
   }, [dispatch]);
+  React.useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }, [cartItems]);
+
+  const addToCart = (items) => {
+    dispatch({ type: "ADD_TO_CART", payload: items });
+  };
   return (
     <div className="home my-4">
       <Container>
@@ -28,7 +36,7 @@ export default function Dashboard() {
         </Row>
         <Information />
         <CategoryCard />
-        <FooterProductSlider products={items} />
+        <FooterProductSlider addToCart={addToCart} products={items} />
         <BrandSlider />
       </Container>
     </div>

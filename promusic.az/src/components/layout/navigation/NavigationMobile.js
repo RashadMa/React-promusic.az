@@ -12,7 +12,7 @@ export default function NavigationMobile({ changeState }) {
         <div className="mobile-menu-header">
           <div className="mobile-logo">
             <LogoLight />
-            <a onClick={changeState} className="close" />
+            <div onClick={changeState} className="close" />
           </div>
         </div>
         <div className="mobile-menu-content">

@@ -4,7 +4,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./footerProductSlider.scss";
 import { BsCurrencyDollar, BsCart3 } from "react-icons/bs";
-import { BiHeartCircle } from "react-icons/bi";
 import { Row } from "reactstrap";
 import { settings } from "./settings";
 import { Link } from "react-router-dom";
@@ -52,7 +51,10 @@ function SliderProducts(props) {
                       </Row>
                     </div>
                     <div className="col-2">
-                      <BsCart3 className="wish" />
+                      <BsCart3
+                        className="wish"
+                        onClick={() => props.addToCart(item)}
+                      />
                     </div>
                   </div>
                 </div>

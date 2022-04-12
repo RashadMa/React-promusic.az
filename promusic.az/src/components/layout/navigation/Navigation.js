@@ -6,8 +6,11 @@ import { BsSearch, BsPerson } from "react-icons/bs";
 import { FiShoppingBag } from "react-icons/fi";
 import LogoDark from "../../common/keyValuePair/LogoDark";
 import CategoryList from "../../categories/categoryList/CategoryList";
+import { useSelector } from "react-redux";
+import { cartReducer } from "../../../redux/reducers/cartReducer";
 
 export default function Navigation({ changeState }) {
+  const { cartItems } = useSelector((state) => state.cartReducer);
   return (
     <>
       <Container>
@@ -37,7 +40,8 @@ export default function Navigation({ changeState }) {
             <Col xs="7" md="3" className="auth d-flex user-navigation">
               <Col className="auth-items d-flex justify-content-end align-items-center">
                 <Link to={"/cart"} className="icon-container bag">
-                  <FiShoppingBag className="bag-icon nav-icon" />
+                  <FiShoppingBag className="bag-icon nav-icon" />{" "}
+                  <span className="count">{cartItems.length}</span>
                 </Link>
                 <Link to={"/login"} className="icon-container">
                   <BsPerson className="person-icon nav-icon" />

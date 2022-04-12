@@ -10,6 +10,30 @@
     }
 }
 
+.bag {
+    position: relative;
+}
+
+.count {
+    position: absolute;
+    top: -49%;
+    left: 76%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: 1rem;
+    background: #708fff;
+    border-radius: 1rem;
+    padding: 0 0.5rem;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 0.7rem;
+    text-align: center;
+    color: #fff;
+}
+
+
 .search-container {
     grid-column: 3/7;
     display: flex;
