@@ -223,3 +223,120 @@
         }
     }
 }
+
+.side-section {
+    background: #f4f6fa;
+    border-radius: 12px;
+    padding: 6px;
+
+    .title {
+        background: #fff;
+        box-shadow: 0 0 12px rgb(0 0 0 / 6%);
+        border-radius: 6px;
+        height: 4.7rem;
+        padding: 0 2rem;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 20px;
+        line-height: 24px;
+        color: #1b1c1f;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+    }
+
+    .wrapper {
+        padding: 0 18px;
+
+        .cart-calculations {
+            width: 100%;
+            padding: 1.5rem 0;
+            border-bottom: 2px solid rgba(208, 212, 222, .25);
+
+            .total {
+                margin-bottom: 1.7rem;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                .left {
+                    font-style: normal;
+                    font-weight: 200;
+                    font-size: 1.3rem;
+                    line-height: 125%;
+                    color: #444;
+                }
+
+                .right {
+                    font-style: normal;
+                    font-weight: 200;
+                    font-size: 1.6rem;
+                    line-height: 125%;
+                    color: #ff2459;
+                }
+            }
+        }
+    }
+}
+
+.total-amount {
+    padding-top: 2.8rem;
+
+    .total-amount-text {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .left {
+            font-style: normal;
+            font-weight: 300;
+            font-size: 2rem;
+            line-height: 125%;
+            color: #444;
+        }
+
+        .right {
+            font-style: normal;
+            font-weight: 200;
+            font-size: 1.6rem;
+            line-height: 125%;
+            color: #ff2459;
+        }
+    }
+}
+
+.make-order-btn {
+    background: #ff4c4c;
+    border-radius: 6px;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 24px;
+    color: #fff;
+    height: 4rem;
+    width: 100%;
+    margin-top: 2.4rem;
+    margin-bottom: 1rem;
+    border: none;
+}
+
+.black {
+    color: #1b1c1f;
+    text-decoration: none;
+}
+
+.greend {
+    color: rgb(0, 177, 0);
+}
+
+@media only screen and (max-width: 768px) {
+    .cart-table {
+        display: block;
+    }
+
+    .basket-page {
+        margin: 0 !important;
+    }
+}

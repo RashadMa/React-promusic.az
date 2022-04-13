@@ -8,8 +8,11 @@ function Cart() {
   const { cartItems } = useSelector((state) => state.cartReducer);
   return (
     <Container>
-      <Basket />
-      <BasketItems cartItems={cartItems} />
+      {cartItems.length > 0 ? (
+        <BasketItems cartItems={cartItems} />
+      ) : (
+        <Basket />
+      )}
     </Container>
   );
 }

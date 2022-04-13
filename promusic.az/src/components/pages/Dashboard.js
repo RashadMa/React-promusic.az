@@ -20,8 +20,8 @@ export default function Dashboard() {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }, [cartItems]);
 
-  const addToCart = (items) => {
-    dispatch({ type: "ADD_TO_CART", payload: items });
+  const addToCart = (product) => {
+    dispatch({ type: "ADD_TO_CART", payload: product });
   };
   return (
     <div className="home my-4">

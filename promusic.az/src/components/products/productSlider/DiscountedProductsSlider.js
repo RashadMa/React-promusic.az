@@ -22,31 +22,35 @@ function DiscountedProductsSlider() {
       <div className="disc">Those at a discount</div>
       <div className="side-banner mb-3">
         <Slider {...settings} className="slider-inline">
-          {items?.map((product) => (
-            <div key={product.id} className="slider-card">
-              <Link to={`/product/${product.id}`}>
-                <div className="top">
-                  <div className="img-container">
-                    <img
-                      src={
-                        "https://localhost:5001/images/products/" +
-                        product.image
-                      }
-                      alt=""
-                    />
+          {items?.map((product) =>
+            product.discountPercent > 0 ? (
+              <div key={product.id} className="slider-card">
+                <Link to={`/product/${product.id}`}>
+                  <div className="top">
+                    <div className="img-container">
+                      <img
+                        src={
+                          "https://localhost:5001/images/products/" +
+                          product.image
+                        }
+                        alt=""
+                      />
+                    </div>
+                    <h1 className="title">Discounted Products</h1>
+                    <p className="product-name">{product.name}</p>
                   </div>
-                  <h1 className="title">Discounted Products</h1>
-                  <p className="product-name">{product.name}</p>
-                </div>
-              </Link>
-              <div className="bottom d-flex align-items-center justify-content-start">
-                <div className="price d-flex">
-                  <p className="new-price">{product.salePrice}</p>
-                  <BsCurrencyDollar className="dollar-sign" />
+                </Link>
+                <div className="bottom d-flex align-items-center justify-content-start">
+                  <div className="price d-flex">
+                    <p className="new-price">{product.salePrice}</p>
+                    <BsCurrencyDollar className="dollar-sign" />
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ) : (
+              ""
+            )
+          )}
         </Slider>
       </div>
     </>

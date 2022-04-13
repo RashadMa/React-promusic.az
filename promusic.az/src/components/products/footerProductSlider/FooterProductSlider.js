@@ -7,8 +7,13 @@ import { BsCurrencyDollar, BsCart3 } from "react-icons/bs";
 import { Row } from "reactstrap";
 import { settings } from "./settings";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function SliderProducts(props) {
+  const { cartItems } = useSelector((state) => state.cartReducer);
+  React.useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }, [cartItems]);
   return (
     <>
       <Row>

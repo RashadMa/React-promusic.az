@@ -13,10 +13,17 @@ import FooterProductSlider from "../footerProductSlider/FooterProductSlider";
 
 function ProductDetail() {
   const { items } = useSelector((state) => state.productListReducer);
+  const { cartItems } = useSelector((state) => state.cartReducer);
   const dispatch = useDispatch();
+  const addToCart = (product) => {
+    dispatch({ type: "ADD_TO_CART", payload: product });
+  };
   React.useEffect(() => {
     getProducts()(dispatch);
   }, [dispatch]);
+  React.useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }, [cartItems]);
 
   const { id: productId } = useParams();
   const filterProducts = () => {
@@ -132,16 +139,22 @@ function ProductDetail() {
                 <AiFillStar className="star" />
               </div>
               <div className="comment">0 Comment</div>
-              <Link to={`/brand/${item.brand.id}`} className="prod-brand">{item.brand.name}</Link>
+              <Link to={`/brand/${item.brand.id}`} className="prod-brand">
+                {item.brand.name}
+              </Link>
             </div>
             <div className="product-price">
               <div className="price-section">
                 <div className="prices">
                   <div className="new-price">
-                    {item.discountPercent > 0
-                      ? <><del className="d-price">{item.salePrice}</del>
-                      {item.salePrice * (1 - item.discountPercent / 100)}</>
-                      : item.salePrice}
+                    {item.discountPercent > 0 ? (
+                      <>
+                        <del className="d-price">{item.salePrice}</del>
+                        {item.salePrice * (1 - item.discountPercent / 100)}
+                      </>
+                    ) : (
+                      item.salePrice
+                    )}
                     <BiDollar />
                   </div>
                 </div>
@@ -158,7 +171,10 @@ function ProductDetail() {
                 <p className="back-to">Back to shopping</p>
                 <FiSkipBack className="non-yes" />
               </Link>
-              <button className="button add-cart">
+              <button
+                onClick={() => addToCart(item)}
+                className="button add-cart"
+              >
                 <p className="cart">Add to cart</p>
                 <FiShoppingCart className="non-yes" />
               </button>
@@ -197,7 +213,7 @@ function ProductDetail() {
           </Col>
         </Row>
       ))}
-      <FooterProductSlider products={items} />
+      <FooterProductSlider addToCart={addToCart} products={items} />
     </Container>
   );
 }
