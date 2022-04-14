@@ -24,23 +24,21 @@ function SliderProducts(props) {
           ?.slice(0)
           .reverse()
           .map((item) => (
-            <Link
-              to={`/product/${item.id}`}
-              key={item.id}
-              className="product-slider-card"
-            >
-              <Row>
-                <div className="product-slider-header">
-                  <div className="slider-image">
-                    <img
-                      src={
-                        "https://localhost:5001/images/products/" + item.image
-                      }
-                      alt=""
-                    />
+            <div key={item.id} className="product-slider-card">
+              <Link to={`/product/${item.id}`}>
+                <Row>
+                  <div className="product-slider-header">
+                    <div className="slider-image">
+                      <img
+                        src={
+                          "https://localhost:5001/images/products/" + item.image
+                        }
+                        alt=""
+                      />
+                    </div>
                   </div>
-                </div>
-              </Row>
+                </Row>
+              </Link>
               <Row>
                 <div className="product-slider-footer">
                   <div className="d-flex test">
@@ -64,7 +62,7 @@ function SliderProducts(props) {
                   </div>
                 </div>
               </Row>
-            </Link>
+            </div>
           ))}
       </Slider>
     </>

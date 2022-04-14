@@ -7,4 +7,5 @@ export default {
   brands: [],
   settings: [],
   subCategories: [],
+  cartItems: [],
 };

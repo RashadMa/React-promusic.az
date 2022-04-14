@@ -1,3 +1,4 @@
+import alertify from "alertifyjs";
 import React, { useState } from "react";
 import { Row, Container, Col, Button, Form } from "react-bootstrap";
 import { useDispatch } from "react-redux";
@@ -20,6 +21,7 @@ function Register() {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(signUp(user, push));
+    alertify.success("Welcome...");
   };
 
   return (

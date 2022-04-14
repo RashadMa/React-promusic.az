@@ -10,6 +10,7 @@ import { BiDollar } from "react-icons/bi";
 import { Accordion } from "react-bootstrap";
 import "./productDetail.scss";
 import FooterProductSlider from "../footerProductSlider/FooterProductSlider";
+import alertify from "alertifyjs";
 
 function ProductDetail() {
   const { items } = useSelector((state) => state.productListReducer);
@@ -17,6 +18,7 @@ function ProductDetail() {
   const dispatch = useDispatch();
   const addToCart = (product) => {
     dispatch({ type: "ADD_TO_CART", payload: product });
+    alertify.success(product.name + " Added to cart");
   };
   React.useEffect(() => {
     getProducts()(dispatch);

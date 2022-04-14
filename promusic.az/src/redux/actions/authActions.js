@@ -14,7 +14,6 @@ export const signUp = (user, push) => (dispatch) => {
       push("/login");
     })
     .catch((error) => {
-      console.log(user, "hey");
       toast.error(error.response?.data, {
         position: toast.POSITION.BOTTOM_RIGHT,
       });

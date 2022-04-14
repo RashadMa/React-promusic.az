@@ -1,14 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import { Col } from "react-bootstrap";
 import { BsCurrencyDollar, BsTrash } from "react-icons/bs";
 import { FiMinus } from "react-icons/fi";
 import { AiOutlinePlus } from "react-icons/ai";
+import { useDispatch, useSelector } from "react-redux";
+import alertify from "alertifyjs";
 
 function BasketItems(props) {
-  let sum = 0;
-  for (let num of props.cartItems) {
-    sum = sum + num.salePrice * (1 - num.discountPercent / 100);
-  }
+  const [total, setTotal] = useState(0);
+  const dispatch = useDispatch();
+  const { cartItems } = useSelector((state) => state.cartReducer);
+  const removeFromCart = (product) => {
+    dispatch({ type: "REMOVE_FROM_CART", payload: product });
+    alertify.success(product.name + " Deleted from cart");
+  };
+  React.useEffect(() => {
+    let sum = 0;
+    cartItems.forEach((cartItem) => {
+      sum =
+        sum +
+        cartItem.salePrice *
+          (1 - cartItem.discountPercent / 100) *
+          cartItem.count;
+    });
+    setTotal(sum);
+  }, [cartItems]);
+
+  const increase = (item) => {
+    dispatch({ type: "INCREASE", payload: item });
+  };
+  const decrease = (item) => {
+    dispatch({ type: "DECREASE", payload: item });
+  };
+  React.useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }, [cartItems]);
   return (
     <>
       <div className="basket-page my-5">
@@ -36,7 +62,7 @@ function BasketItems(props) {
                     <div className="ordered-product col-lg-6">
                       <p className="product-name">{item.name}</p>
                       <p className="product-count">
-                        <span className="quantity">7 Unit</span>{" "}
+                        <span className="quantity">{item.count} Unit</span>{" "}
                         <span className="count-price">
                           {item.discountPercent > 0
                             ? item.salePrice * (1 - item.discountPercent / 100)
@@ -60,15 +86,21 @@ function BasketItems(props) {
                     <div className="cart-table-functions col-lg-6">
                       <div className="cart-table-delete-quantity">
                         <div className="quantity-container">
-                          <button className="minus">
+                          <button
+                            onClick={() => decrease(item)}
+                            className="minus"
+                          >
                             <FiMinus className="crease" />
                           </button>
-                          <span className="quantity">7</span>
+                          <span className="quantity">{item.count}</span>
                           <button className="plus">
-                            <AiOutlinePlus />
+                            <AiOutlinePlus onClick={() => increase(item)} />
                           </button>
                         </div>
-                        <button className="delete-btn">
+                        <button
+                          onClick={() => removeFromCart(item)}
+                          className="delete-btn"
+                        >
                           <BsTrash className="trash" />
                         </button>
                       </div>
@@ -92,7 +124,7 @@ function BasketItems(props) {
                   <div className="total-amount-text">
                     <p className="left">Total:</p>
                     <div className="right">
-                      {sum} <BsCurrencyDollar className="mb-1" />{" "}
+                      {total} <BsCurrencyDollar className="mb-1" />{" "}
                     </div>
                   </div>
                   <button className="make-order-btn">Order</button>

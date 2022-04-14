@@ -1,3 +1,4 @@
+import alertify from "alertifyjs";
 import React, { useState } from "react";
 import { Row, Container, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
@@ -20,6 +21,9 @@ function Login() {
     e.preventDefault();
     signIn(creds, push)(dispatch);
     setCreds({ name: "", password: "" });
+    alertify.alert("You are logged in", function () {
+      alertify.success("OK");
+    });
   };
 
   const handleChangeLogin = (e) => {

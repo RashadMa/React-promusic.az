@@ -1,3 +1,4 @@
+import alertify from "alertifyjs";
 import React from "react";
 import { BsCurrencyDollar, BsCart3 } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
@@ -21,6 +22,7 @@ function ProductCard(props) {
 
   const addToCart = (product) => {
     dispatch({ type: "ADD_TO_CART", payload: product });
+    alertify.success(product.name + " Added to cart");
   };
   const productList = filterProducts();
   return (
@@ -29,51 +31,53 @@ function ProductCard(props) {
         <div className="d-grid cards my-5">
           {productList.length ? (
             productList.map((item) => (
-              <div
-                onClick={() => {
-                  history.push(`/product/${item.id}`);
-                }}
-                key={item.id}
-                className="none"
-              >
-                <div className="product-slider-card">
-                  <Row>
-                    <div className="product-slider-header">
-                      <div className="slider-image">
-                        <img
-                          src={
-                            "https://localhost:5001/images/products/" +
-                            item.image
-                          }
-                          alt=""
-                        />
-                      </div>
-                    </div>
-                  </Row>
-                  <Row>
-                    <div className="product-slider-footer">
-                      <div className="d-flex test">
-                        <div className="col-10">
-                          <Row>
-                            <p className="name">{item.name}</p>
-                          </Row>
-                          <Row>
-                            <p className="price">
-                              {item.salePrice}
-                              <BsCurrencyDollar className="dollar-sign" />
-                            </p>
-                          </Row>
-                        </div>
-                        <div className="col-2">
-                          <BsCart3
-                            onClick={() => addToCart(item)}
-                            className="wish"
+              <div key={item.id} className="product-slider-card">
+                <div
+                  onClick={() => {
+                    history.push(`/product/${item.id}`);
+                  }}
+                  key={item.id}
+                  className="none"
+                >
+                  <div>
+                    <Row>
+                      <div className="product-slider-header">
+                        <div className="slider-image">
+                          <img
+                            src={
+                              "https://localhost:5001/images/products/" +
+                              item.image
+                            }
+                            alt=""
                           />
                         </div>
                       </div>
-                    </div>
-                  </Row>
+                    </Row>
+                  </div>
                 </div>
+                <Row>
+                  <div className="product-slider-footer">
+                    <div className="d-flex test">
+                      <div className="col-10">
+                        <Row>
+                          <p className="name">{item.name}</p>
+                        </Row>
+                        <Row>
+                          <p className="price">
+                            {item.salePrice}
+                            <BsCurrencyDollar className="dollar-sign" />
+                          </p>
+                        </Row>
+                      </div>
+                      <div className="col-2">
+                        <BsCart3
+                          onClick={() => addToCart(item)}
+                          className="wish"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </Row>
               </div>
             ))
           ) : (
