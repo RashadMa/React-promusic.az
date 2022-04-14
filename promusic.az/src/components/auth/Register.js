@@ -22,42 +22,54 @@ function Register() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // dispatch(signUp(user, push));
-    // alertify.success("Welcome...");
-  };
-
-  const handleChangeLogin = (e) => {
-    const { name, value } = e.target;
-    setUser({ ...user, [name]: value });
-
     let error = false;
     const errorObj = { ...errorsObj };
     if (user.email === "") {
       errorObj.email = "Email is required";
       error = true;
-    } else {
-      errorObj.email = "";
-      error = false;
+    } else if (user.email.length < 5) {
+      errorObj.email = "Min length must be greater than 8";
+    } else if (user.email.length > 30) {
+      errorObj.email = "Max length must be lower than 30";
     }
-    // if (user.password === "") {
-    //   errorObj.password = "Password is required";
-    //   error = true;
-    // }
 
     // if (user.userName === "") {
     //   errorObj.userName = "User name is required";
     //   error = true;
+    // } else if (user.userName.length < 2) {
+    //   errorObj.userName = "Min length must be greater than 8";
+    // } else if (user.userName.length > 30) {
+    //   errorObj.userName = "Max length must be lower than 30";
     // }
 
-    // if (user.name === "") {
-    //   errorObj.name = "Name is required";
-    //   error = true;
-    // }
+    if (user.name === "") {
+      errorObj.name = "Name is required";
+      error = true;
+    } else if (user.name.length < 2) {
+      errorObj.name = "Min length must be greater than 8";
+    } else if (user.name.length > 30) {
+      errorObj.name = "Max length must be lower than 30";
+    }
+
+    if (user.password === "") {
+      errorObj.password = "Name is required";
+      error = true;
+    } else if (user.password.length < 8) {
+      errorObj.password = "Min length must be greater than 8";
+    } else if (user.password.length > 30) {
+      errorObj.password = "Max length must be lower than 30";
+    }
     setErrors(errorObj);
 
     if (!error) {
-      console.log(e.target.value);
+      dispatch(signUp(user, push));
+      alertify.success("Welcome...");
     }
+  };
+
+  const handleChangeLogin = (e) => {
+    const { name, value } = e.target;
+    setUser({ ...user, [name]: value });
   };
 
   return (
