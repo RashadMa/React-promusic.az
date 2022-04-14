@@ -1,6 +1,6 @@
 import alertify from "alertifyjs";
 import React, { useState } from "react";
-import { Row, Container, Col, Button, Form } from "react-bootstrap";
+import { Row, Container, Col, Form } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -17,11 +17,47 @@ function Register() {
     email: "",
     password: "",
   });
-
+  let errorsObj = { email: "", password: "" };
+  const [errors, setErrors] = useState(errorsObj);
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(signUp(user, push));
-    alertify.success("Welcome...");
+
+    // dispatch(signUp(user, push));
+    // alertify.success("Welcome...");
+  };
+
+  const handleChangeLogin = (e) => {
+    const { name, value } = e.target;
+    setUser({ ...user, [name]: value });
+
+    let error = false;
+    const errorObj = { ...errorsObj };
+    if (user.email === "") {
+      errorObj.email = "Email is required";
+      error = true;
+    } else {
+      errorObj.email = "";
+      error = false;
+    }
+    // if (user.password === "") {
+    //   errorObj.password = "Password is required";
+    //   error = true;
+    // }
+
+    // if (user.userName === "") {
+    //   errorObj.userName = "User name is required";
+    //   error = true;
+    // }
+
+    // if (user.name === "") {
+    //   errorObj.name = "Name is required";
+    //   error = true;
+    // }
+    setErrors(errorObj);
+
+    if (!error) {
+      console.log(e.target.value);
+    }
   };
 
   return (
@@ -49,10 +85,11 @@ function Register() {
                     id="email"
                     placeholder="example@example.com"
                     defaultValue={user.email}
-                    onChange={(e) =>
-                      setUser({ ...user, email: e.target.value })
-                    }
+                    onChange={handleChangeLogin}
                   />
+                  {errors.email && (
+                    <div className="alert alert-danger">{errors.email}</div>
+                  )}
                 </Col>
                 <Col lg="6">
                   <Label for="username">Username</Label>
@@ -64,10 +101,11 @@ function Register() {
                     id="username"
                     placeholder="Your username"
                     defaultValue={user.userName}
-                    onChange={(e) =>
-                      setUser({ ...user, userName: e.target.value })
-                    }
+                    onChange={handleChangeLogin}
                   />
+                  {errors.userName && (
+                    <div className="alert alert-danger">{errors.userName}</div>
+                  )}
                 </Col>
               </Row>
 
@@ -82,8 +120,11 @@ function Register() {
                     id="name"
                     placeholder="Your name"
                     defaultValue={user.name}
-                    onChange={(e) => setUser({ ...user, name: e.target.value })}
+                    onChange={handleChangeLogin}
                   />
+                  {errors.name && (
+                    <div className="alert alert-danger">{errors.name}</div>
+                  )}
                 </Col>
                 <Col lg="6">
                   <Label for="password">Password</Label>
@@ -95,10 +136,11 @@ function Register() {
                     id="password"
                     placeholder="Passowrd"
                     defaultValue={user.password}
-                    onChange={(e) =>
-                      setUser({ ...user, password: e.target.value })
-                    }
+                    onChange={handleChangeLogin}
                   />
+                  {errors.password && (
+                    <div className="alert alert-danger">{errors.password}</div>
+                  )}
                 </Col>
               </Row>
 
