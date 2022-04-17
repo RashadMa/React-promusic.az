@@ -1,5 +1,5 @@
 import axios from "axios";
-import { toast } from "react-toastify";
+import alertify from "alertifyjs";
 
 let url = "https://localhost:5001/admin/api/Accounts";
 
@@ -14,9 +14,7 @@ export const signUp = (user, push) => (dispatch) => {
       push("/login");
     })
     .catch((error) => {
-      toast.error(error.response?.data, {
-        position: toast.POSITION.BOTTOM_RIGHT,
-      });
+      return alertify.error("This email already used");
     });
 };
 
@@ -35,10 +33,7 @@ export const signIn = (creds, push) => {
         push("/");
       })
       .catch((error) => {
-        console.log(error.response);
-        toast.error(error.response?.data, {
-          position: toast.POSITION.BOTTOM_RIGHT,
-        });
+        alertify.error("Email or Password is incorrect");
       });
   };
 };

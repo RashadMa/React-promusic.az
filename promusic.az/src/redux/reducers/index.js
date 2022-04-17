@@ -9,6 +9,7 @@ import changeCategoryReducer from "./changeCategoryReducer";
 import subCategoryListReducer from "./subCategoryListReducer";
 import authReducer from "./authReducer";
 import cartReducer from "./cartReducer";
+import commentReducer from "./commentReducer";
 
 const rootReducer = combineReducers({
   categoryListReducer,
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   subCategoryListReducer,
   authReducer,
   cartReducer,
+  commentReducer,
 });
 
 export default rootReducer;

@@ -1,4 +1,3 @@
-import alertify from "alertifyjs";
 import React, { useState } from "react";
 import { Row, Container, Col, Form } from "react-bootstrap";
 import { useDispatch } from "react-redux";
@@ -52,7 +51,7 @@ function Register() {
     }
 
     if (user.password === "") {
-      errorObj.password = "Name is required";
+      errorObj.password = "Password is required";
       error = true;
     } else if (user.password.length < 8) {
       errorObj.password = "Min length must be greater than 8";
@@ -63,7 +62,6 @@ function Register() {
 
     if (!error) {
       dispatch(signUp(user, push));
-      alertify.success("Welcome...");
     }
   };
 

@@ -235,10 +235,23 @@
         height: auto;
         border-bottom: 1px solid hsla(0, 0%, 76.9%, .25);
 
-        .count,
+        .count-comment,
         .rating {
             font-size: 1.1rem;
         }
+
+        .count-comment {
+            &::after {
+                display: inline-block;
+                content: "";
+                width: 1px;
+                height: 16px;
+                background: #c4c4c4;
+                border-radius: 1px;
+                margin: 0 12px;
+            }
+        }
+
     }
 }
 
@@ -247,7 +260,8 @@
     margin: 0 !important;
     font-size: 1.3rem;
 }
-.non-yes{
+
+.non-yes {
     display: none;
 }
 
@@ -263,7 +277,8 @@
     }
 
 }
-.d-price{
+
+.d-price {
     margin-right: 1rem;
     color: black;
 }

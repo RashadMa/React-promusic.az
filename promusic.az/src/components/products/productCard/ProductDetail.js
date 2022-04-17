@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { getProducts } from "../../../redux/actions/productActions";
-import { Col, Container, Row } from "reactstrap";
+import { Col, Container, Input, Row } from "reactstrap";
 import { FiShield, FiMail, FiSkipBack, FiShoppingCart } from "react-icons/fi";
 import { AiOutlineLike, AiFillStar, AiOutlinePercentage } from "react-icons/ai";
 import { BsBoxSeam } from "react-icons/bs";
@@ -15,11 +15,13 @@ import alertify from "alertifyjs";
 function ProductDetail() {
   const { items } = useSelector((state) => state.productListReducer);
   const { cartItems } = useSelector((state) => state.cartReducer);
+  const { comments } = useSelector((state) => state.commentReducer);
   const dispatch = useDispatch();
   const addToCart = (product) => {
     dispatch({ type: "ADD_TO_CART", payload: product });
     alertify.success(product.name + " Added to cart");
   };
+  console.log(comments);
   React.useEffect(() => {
     getProducts()(dispatch);
   }, [dispatch]);
@@ -196,10 +198,18 @@ function ProductDetail() {
                 <Accordion.Header>Buyer reviews</Accordion.Header>
                 <Accordion.Body>
                   <div className="content">
+                    <div className="mb-5">
+                      <Input
+                        type="text"
+                        name="comment"
+                        id="comment"
+                        placeholder="Write your comment"
+                      />
+                    </div>
                     <div className="wrapper">
                       <div className="customer-comments">
                         <div className="comments-header">
-                          <p className="count">
+                          <p className="count-comment">
                             Common <span>0</span> Comment
                           </p>
                           <p className="rating">
