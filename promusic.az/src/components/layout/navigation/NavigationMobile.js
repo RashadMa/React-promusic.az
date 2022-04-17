@@ -4,6 +4,7 @@ import { BsSearch, BsFacebook, BsInstagram, BsYoutube } from "react-icons/bs";
 import { IoMdPaperPlane } from "react-icons/io";
 import { GrMail } from "react-icons/gr";
 import CategoryListMobile from "../../categories/categoryList/CategoryListMobile";
+import { Link } from "react-router-dom";
 
 export default function NavigationMobile({ changeState }) {
   return (
@@ -27,12 +28,6 @@ export default function NavigationMobile({ changeState }) {
               <BsSearch className="search-icon" style={{ color: "white" }} />
             </button>
           </form>
-          <div className="mobile-menu-tracking">
-            <a className="Order-mobile-menu">
-              <IoMdPaperPlane className="plane-icon" />
-              Track the orders
-            </a>
-          </div>
           <CategoryListMobile />
           <div className="social d-flex justify-content-between">
             <a href="mailto:info@promusic.az">
@@ -50,14 +45,8 @@ export default function NavigationMobile({ changeState }) {
           </div>
           <div className="contact-mobile-menu d-flex">
             <div className="pages d-flex">
-              <a href="">Contact</a>
-              <a href="">About</a>
-              <a href="">Customer service</a>
-            </div>
-            <div className="mobile-lang d-flex">
-              <a href="">Az</a>
-              <a href="">En</a>
-              <a href="">Ru</a>
+              <Link to={"/contact"}>Contact</Link>
+              <Link to={"/about"}>About</Link>
             </div>
           </div>
         </div>

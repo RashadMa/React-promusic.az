@@ -8,15 +8,18 @@ import FooterProductSlider from "../products/footerProductSlider/FooterProductSl
 import BrandSlider from "../brands/brandsSlider/BrandSlider";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../../redux/actions/productActions";
+import Loading from "../common/loader/Loader";
 import alertify from "alertifyjs";
 
 export default function Dashboard() {
   const { items } = useSelector((state) => state.productListReducer);
   const { cartItems } = useSelector((state) => state.cartReducer);
+  const {isLoadingDone} = useSelector(state => state.isLoadingReducer)
+
   const [loader, setLoader] = useState(true);
   const dispatch = useDispatch();
   React.useEffect(() => {
-    setLoader(true);
+    // setLoader(true);
     getProducts()(dispatch);
   }, [dispatch]);
   React.useEffect(() => {
@@ -28,7 +31,10 @@ export default function Dashboard() {
   };
   return (
     <div className="home my-4">
-      <Container>
+      {!isLoadingDone ? (
+        <Loading />
+      ): (
+        <Container>
         <Row>
           <Col lg="9">
             <SliderData />
@@ -42,6 +48,8 @@ export default function Dashboard() {
         <FooterProductSlider addToCart={addToCart} products={items} />
         <BrandSlider />
       </Container>
+      )}
+    
     </div>
   );
 }

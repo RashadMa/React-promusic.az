@@ -54,9 +54,8 @@ function Footer() {
             <div className="footer-bottom-inner">
               <MasterCard />
               <div className="footer-bottom-content">
-                <Link to={'/about'}>About</Link>
-                <a href="/blog">Blog</a>
-                <a href="/contact">Contact</a>
+                <Link to={"/about"}>About</Link>
+                <Link to={"/contact"}>Contact</Link>
               </div>
               <p className="made-by">
                 Made by <a>Rashad Hehe</a>

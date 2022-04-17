@@ -27,6 +27,7 @@ function BrandSlider() {
           {items?.map((item) => (
             <div
               onClick={() => {
+                window.scrollTo({behavior: "smooth", top: 0})
                 history.push(`/brand/${item.id}`);
               }}
               key={item.id}

@@ -6,7 +6,19 @@ export function getProductsSuccess(slider) {
 
 export const getProducts = () => (dispatch) => {
   let url = "https://localhost:5001/member/api/Products?page=1";
+
+  dispatch({
+    type: actionTypes.GET_LOADING,
+    payload:  {isLoadingDone: false}
+  })
   return fetch(url)
     .then((response) => response.json())
-    .then((result) => dispatch(getProductsSuccess(result)));
+    .then((result) => {
+      // setLoader(false)
+      dispatch({
+        type: actionTypes.GET_LOADING,
+        payload: {isLoadingDone: true}
+      })
+      dispatch(getProductsSuccess(result))
+    });
 };

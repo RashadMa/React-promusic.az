@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import Login from "../components/auth/Login";
 import Register from "../components/auth/Register";
 import BrandDetail from "../components/brands/brandDetail/BrandDetail";
@@ -14,11 +14,13 @@ import ProductDetail from "../components/products/productCard/ProductDetail";
 import { BrowserRouter as Router } from "react-router-dom";
 import "./common.scss";
 import Cart from "../components/basket/Cart";
+import { useSelector } from "react-redux";
 
 function App() {
+  const { isLoadingDone } = useSelector((state) => state.isLoadingReducer);
   return (
     <Router>
-      <Header />
+      {isLoadingDone && <Header />}
       <Switch>
         <Route path="/" exact component={Dashboard} />
         <Route path="/categories/:id" exact component={Categories} />
@@ -29,9 +31,11 @@ function App() {
         <Route path="/login" exact component={Login} />
         <Route path="/register" exact component={Register} />
         <Route path="/cart" exact component={Cart} />
-        <Route path="/" component={NotFound} />
+        <Route path="/search?:textQuery" exact component={Cart} />
+        <Route path="/error" exact component={NotFound} />
+        <Redirect to="/error" />
       </Switch>
-      <Footer />
+      {isLoadingDone && <Footer />}
     </Router>
   );
 }

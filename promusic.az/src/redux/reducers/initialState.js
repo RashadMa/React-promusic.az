@@ -8,4 +8,5 @@ export default {
   settings: [],
   subCategories: [],
   cartItems: [],
+  isLoadingDone: true,
 };

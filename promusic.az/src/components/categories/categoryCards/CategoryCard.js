@@ -13,7 +13,7 @@ function CategoryCard() {
   React.useEffect(() => {
     getCategories()(dispatch);
   }, [dispatch]);
-  const history = useHistory();
+  const {push} = useHistory();
   return (
     <>
       <div className="category-cards d-grid">
@@ -28,7 +28,7 @@ function CategoryCard() {
               <div className="category-list">
                 <h3
                   onClick={() => {
-                    history.push(`/categories/${category.id}`);
+                    push(`/categories/${category.id}`);
                   }}
                   className="title"
                 >
