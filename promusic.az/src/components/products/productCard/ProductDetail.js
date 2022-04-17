@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { getProducts } from "../../../redux/actions/productActions";
@@ -13,21 +13,30 @@ import FooterProductSlider from "../footerProductSlider/FooterProductSlider";
 import alertify from "alertifyjs";
 
 function ProductDetail() {
+  const [rate, setRate] = useState(0);
   const { items } = useSelector((state) => state.productListReducer);
   const { cartItems } = useSelector((state) => state.cartReducer);
-  const { comments } = useSelector((state) => state.commentReducer);
   const dispatch = useDispatch();
   const addToCart = (product) => {
     dispatch({ type: "ADD_TO_CART", payload: product });
     alertify.success(product.name + " Added to cart");
   };
-  console.log(comments);
   React.useEffect(() => {
     getProducts()(dispatch);
   }, [dispatch]);
   React.useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }, [cartItems]);
+
+  React.useEffect(() => {
+    let rate = 0;
+    items?.forEach((item) => {
+      item.comments?.forEach((comment) => {
+        rate = rate + comment.rate / item.comments.length;
+      });
+    });
+    setRate(rate);
+  }, [items]);
 
   const { id: productId } = useParams();
   const filterProducts = () => {
@@ -210,11 +219,24 @@ function ProductDetail() {
                       <div className="customer-comments">
                         <div className="comments-header">
                           <p className="count-comment">
-                            Common <span>0</span> Comment
+                            Common <span>{item.comments.length}</span> Comment
                           </p>
                           <p className="rating">
-                            0 <AiFillStar className="star" />
+                            {Number(rate.toFixed(1))}{" "}
+                            <AiFillStar className="star" />
                           </p>
+                        </div>
+                        <div>
+                          <h3 className="comments-title my-3">
+                            Product's comments
+                          </h3>
+                          {item.comments?.map((comment) => (
+                            <div className="comment-list" key={comment.id}>
+                              <p className="comment-list-item">
+                                {comment.text}
+                              </p>
+                            </div>
+                          ))}
                         </div>
                       </div>
                     </div>

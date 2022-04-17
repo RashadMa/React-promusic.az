@@ -265,6 +265,17 @@
     display: none;
 }
 
+.comments-title {
+    color: #fed500;
+}
+
+.comment-list {
+    .comment-list-item {
+        margin: 0% !important;
+        font-size: 14px;
+    }
+}
+
 @media screen and (max-width: 576px) {
 
     .cart,
