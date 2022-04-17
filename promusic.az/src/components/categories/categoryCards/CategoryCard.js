@@ -38,7 +38,7 @@ function CategoryCard() {
               </div>
             </div>
             <Link
-              to={`/category/${category.id}`}
+              to={`/categories/${category.id}`}
               className="category-card-btn d-flex align-items-center justify-content-center"
             >
               Details

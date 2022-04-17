@@ -11,9 +11,14 @@ import { Accordion } from "react-bootstrap";
 import "./productDetail.scss";
 import FooterProductSlider from "../footerProductSlider/FooterProductSlider";
 import alertify from "alertifyjs";
+import { postComment } from "../../../redux/actions/commentActions";
+import { Button } from "reactstrap";
 
 function ProductDetail() {
   const [rate, setRate] = useState(0);
+  const [state, setState] = useState({
+    text: "",
+  });
   const { items } = useSelector((state) => state.productListReducer);
   const { cartItems } = useSelector((state) => state.cartReducer);
   const dispatch = useDispatch();
@@ -43,6 +48,16 @@ function ProductDetail() {
     return items?.filter((item) => item.id === Number(productId));
   };
   const prod = filterProducts();
+
+  const handleInputChange = (e) => {
+    let { id, value } = e.target;
+    setState({ ...state, [id]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    postComment(state)(dispatch);
+  };
   return (
     <Container className="detail my-5">
       {prod?.slice(0.1).map((item) => (
@@ -208,12 +223,16 @@ function ProductDetail() {
                 <Accordion.Body>
                   <div className="content">
                     <div className="mb-5">
-                      <Input
-                        type="text"
-                        name="comment"
-                        id="comment"
-                        placeholder="Write your comment"
-                      />
+                      <form onSubmit={handleSubmit}>
+                        <Input
+                          onChange={handleInputChange}
+                          type="text"
+                          name="comment"
+                          id="comment"
+                          placeholder="Write your comment"
+                        />
+                        <Button className="mt-3" color="warning">Post comment</Button>
+                      </form>
                     </div>
                     <div className="wrapper">
                       <div className="customer-comments">
