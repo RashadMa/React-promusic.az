@@ -9,23 +9,24 @@ import { settings } from "./settings";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-function SliderProducts({products, addToCart}) {
+function SliderProducts({ products, addToCart }) {
   const { cartItems } = useSelector((state) => state.cartReducer);
+  const { items } = useSelector((state) => state.productListReducer);
+
   React.useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }, [cartItems]);
 
-
-  const handleSearchedProduct = ()=>{
+  const handleSearchedProduct = () => {
     let searched = products;
 
-  
-    searched = searched?.filter(({name: searchedName}) => searchedName.toLowerCase().includes("jac"))
-    return searched?.slice(0).reverse()
-  }
+    searched = searched?.filter(({ name: searchedName }) =>
+      searchedName.toLowerCase().includes("jac")
+    );
+    return searched?.slice(0).reverse();
+  };
 
-  const searchedProduct = handleSearchedProduct()
-
+  const searchedProduct = handleSearchedProduct();
 
   return (
     <>
@@ -33,7 +34,10 @@ function SliderProducts({products, addToCart}) {
         <h1 className="new-products">New Products</h1>
       </Row>
       <Slider {...settings} className="product-slider">
-        {searchedProduct?.map((item) => (
+        {items
+          ?.slice(0)
+          ?.reverse()
+          ?.map((item) => (
             <div key={item.id} className="product-slider-card">
               <Link to={`/product/${item.id}`}>
                 <Row>

@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Container } from "reactstrap";
 import { getBrands } from "../../../redux/actions/brandActions";
 import "./brandDetail.scss";

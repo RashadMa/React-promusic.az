@@ -320,6 +320,13 @@
     margin-top: 2.4rem;
     margin-bottom: 1rem;
     border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    &:hover{
+        color: #ffffff;
+    }
 }
 
 .black {

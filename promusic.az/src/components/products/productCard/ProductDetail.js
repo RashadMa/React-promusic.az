@@ -10,21 +10,40 @@ import { BiDollar } from "react-icons/bi";
 import { Accordion } from "react-bootstrap";
 import "./productDetail.scss";
 import FooterProductSlider from "../footerProductSlider/FooterProductSlider";
-import alertify from "alertifyjs";
 import { postComment } from "../../../redux/actions/commentActions";
 import { Button } from "reactstrap";
+import Swal from "sweetalert2";
+import jwtDecode from "jwt-decode";
 
 function ProductDetail() {
+  const { items } = useSelector((state) => state.productListReducer);
+  const { id: prdcId } = useParams();
+  const filterProducts = () => {
+    return items?.filter((item) => item.id === Number(prdcId));
+  };
+  const prod = filterProducts();
+  let token = localStorage.getItem("token");
+  token = jwtDecode(token);
   const [rate, setRate] = useState(0);
   const [state, setState] = useState({
+    appUserId: token.Name,
     text: "",
+    productId: Number(prdcId),
+    rate: 3,
   });
-  const { items } = useSelector((state) => state.productListReducer);
+  const { text } = state;
+
   const { cartItems } = useSelector((state) => state.cartReducer);
   const dispatch = useDispatch();
   const addToCart = (product) => {
     dispatch({ type: "ADD_TO_CART", payload: product });
-    alertify.success(product.name + " Added to cart");
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: product.name + " Added to cart",
+      showConfirmButton: false,
+      timer: 900,
+    });
   };
   React.useEffect(() => {
     getProducts()(dispatch);
@@ -43,12 +62,6 @@ function ProductDetail() {
     setRate(rate);
   }, [items]);
 
-  const { id: productId } = useParams();
-  const filterProducts = () => {
-    return items?.filter((item) => item.id === Number(productId));
-  };
-  const prod = filterProducts();
-
   const handleInputChange = (e) => {
     let { id, value } = e.target;
     setState({ ...state, [id]: value });
@@ -57,7 +70,9 @@ function ProductDetail() {
   const handleSubmit = (e) => {
     e.preventDefault();
     postComment(state)(dispatch);
+    e.target.children[0].value = "";
   };
+  
   return (
     <Container className="detail my-5">
       {prod?.slice(0.1).map((item) => (
@@ -227,11 +242,14 @@ function ProductDetail() {
                         <Input
                           onChange={handleInputChange}
                           type="text"
-                          name="comment"
-                          id="comment"
+                          name="text"
+                          id="text"
                           placeholder="Write your comment"
+                          defaultValue={text}
                         />
-                        <Button className="mt-3" color="warning">Post comment</Button>
+                        <Button className="mt-3" color="warning">
+                          Post comment
+                        </Button>
                       </form>
                     </div>
                     <div className="wrapper">

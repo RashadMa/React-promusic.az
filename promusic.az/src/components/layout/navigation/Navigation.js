@@ -3,13 +3,29 @@ import { Link } from "react-router-dom";
 import { Col, Container, Row } from "reactstrap";
 import "./navigation.scss";
 import { BsSearch, BsPerson } from "react-icons/bs";
-import { FiShoppingBag } from "react-icons/fi";
+import { FiLogOut, FiShoppingBag } from "react-icons/fi";
 import LogoDark from "../../common/keyValuePair/LogoDark";
 import CategoryList from "../../categories/categoryList/CategoryList";
 import { useSelector } from "react-redux";
 
 export default function Navigation({ changeState }) {
   const { cartItems } = useSelector((state) => state.cartReducer);
+  const [log, setLog] = React.useState(localStorage.getItem("token"));
+  const change = () => {
+    setLog(!log);
+  };
+
+  const [items, removeItems] = React.useState(localStorage.getItem("token"));
+
+  const deleteItem = () => {
+    removeItems(localStorage.removeItem(items));
+  };
+
+  // React.useEffect(() => {
+  //     let eben = localStorage.removeItem("token");
+  //     removeItems(eben);
+  //   }, [items]);
+
   return (
     <>
       <Container>
@@ -24,7 +40,7 @@ export default function Navigation({ changeState }) {
               </Link>
             </Col>
             <Col xs="6" className="search-container d-flex">
-              <form className="form-group">
+              {/* <form className="form-group">
                 <input
                   className="search-input"
                   name="search"
@@ -34,7 +50,7 @@ export default function Navigation({ changeState }) {
                 <button type="submit" className="search-btn">
                   <BsSearch className="search-icon" />
                 </button>
-              </form>
+              </form> */}
             </Col>
             <Col xs="7" md="3" className="auth d-flex user-navigation">
               <Col className="auth-items d-flex justify-content-end align-items-center">
@@ -42,9 +58,16 @@ export default function Navigation({ changeState }) {
                   <FiShoppingBag className="bag-icon nav-icon" />{" "}
                   <span className="count">{cartItems.length}</span>
                 </Link>
-                <Link to={"/login"} className="icon-container">
-                  <BsPerson className="person-icon nav-icon" />
-                </Link>
+                {log ? (
+                  <FiLogOut
+                    onClick={deleteItem}
+                    className="logout-icon nav-icon"
+                  />
+                ) : (
+                  <Link to={"/login"} className="icon-container">
+                    <BsPerson className="person-icon nav-icon" />
+                  </Link>
+                )}
                 <div onClick={changeState} className="hamburger-menu">
                   <div></div>
                   <div></div>

@@ -17,7 +17,7 @@ export default function NavigationMobile({ changeState }) {
           </div>
         </div>
         <div className="mobile-menu-content">
-          <form className="form-group undefined">
+          {/* <form className="form-group undefined">
             <input
               className="search-input"
               name="search"
@@ -27,7 +27,7 @@ export default function NavigationMobile({ changeState }) {
             <button type="submit" className="search-btn">
               <BsSearch className="search-icon" style={{ color: "white" }} />
             </button>
-          </form>
+          </form> */}
           <CategoryListMobile />
           <div className="social d-flex justify-content-between">
             <a href="mailto:info@promusic.az">

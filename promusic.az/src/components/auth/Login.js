@@ -48,7 +48,7 @@ function Login() {
                 name="name"
                 id="email"
                 placeholder="example@example.com"
-                autoComplete="false"
+                autoComplete="off"
                 defaultValue={creds.email}
                 onChange={handleChangeLogin}
               />
@@ -58,7 +58,7 @@ function Login() {
                 type="password"
                 name="password"
                 id="password"
-                autoComplete="false"
+                autoComplete="off"
                 placeholder="Passowrd"
                 defaultValue={creds.password}
                 onChange={handleChangeLogin}

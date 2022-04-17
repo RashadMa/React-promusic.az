@@ -15,12 +15,14 @@ import { BrowserRouter as Router } from "react-router-dom";
 import "./common.scss";
 import Cart from "../components/basket/Cart";
 import { useSelector } from "react-redux";
+import Order from "../components/order/Order";
 
 function App() {
   const { isLoadingDone } = useSelector((state) => state.isLoadingReducer);
   return (
     <Router>
-      {isLoadingDone && <Header />}
+      {/* {isLoadingDone && <Header />} */}
+      <Header />
       <Switch>
         <Route path="/" exact component={Dashboard} />
         <Route path="/categories/:id" exact component={Categories} />
@@ -31,11 +33,13 @@ function App() {
         <Route path="/login" exact component={Login} />
         <Route path="/register" exact component={Register} />
         <Route path="/cart" exact component={Cart} />
+        <Route path="/order" exact component={Order} />
         <Route path="/search?:textQuery" exact component={Cart} />
         <Route path="/error" exact component={NotFound} />
         <Redirect to="/error" />
       </Switch>
-      {isLoadingDone && <Footer />}
+      {/* {isLoadingDone && <Footer />} */}
+      <Footer />
     </Router>
   );
 }

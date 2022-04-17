@@ -4,14 +4,14 @@ import { Accordion } from "react-bootstrap";
 import "./filterByPrice.scss";
 
 function FilterByPrice() {
-  //   function valuetext(value) {
-  //     return `${value}°C`;
-  //   }
-  //   const [value, setValue] = React.useState([20, 37]);
+    // function valuetext(value) {
+    //   return `${value}°C`;
+    // }
+    // const [value, setValue] = React.useState([20, 37]);
 
-  //   const handleChange = (event, newValue) => {
-  //     setValue(newValue);
-  //   };
+    // const handleChange = (event, newValue) => {
+    //   setValue(newValue);
+    // };
   return (
     <>
       <Accordion className="acc" defaultActiveKey="0">

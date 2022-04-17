@@ -1,6 +1,6 @@
 import { toast } from "react-toastify";
 import jwtDecode from "jwt-decode";
-import alertify from "alertifyjs";
+import Swal from "sweetalert2";
 
 const initialState = {
   token: localStorage.getItem("token"),
@@ -13,10 +13,22 @@ const initialState = {
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case "SIGN_UP":
-      return console.log("Welcome...");
+      return Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: " Welcome ....",
+        showConfirmButton: false,
+        timer: 900,
+      });
 
     case "SIGN_IN":
-      alertify.success("You are signed in");
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "You are signed in",
+        showConfirmButton: false,
+        timer: 900,
+      });
 
       const user = jwtDecode(action.token);
       return {

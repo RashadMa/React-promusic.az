@@ -32,14 +32,14 @@ function Register() {
       errorObj.email = "Max length must be lower than 30";
     }
 
-    // if (user.userName === "") {
-    //   errorObj.userName = "User name is required";
-    //   error = true;
-    // } else if (user.userName.length < 2) {
-    //   errorObj.userName = "Min length must be greater than 8";
-    // } else if (user.userName.length > 30) {
-    //   errorObj.userName = "Max length must be lower than 30";
-    // }
+    if (user.userName === "") {
+      errorObj.userName = "User name is required";
+      error = true;
+    } else if (user.userName.length < 2) {
+      errorObj.userName = "Min length must be greater than 8";
+    } else if (user.userName.length > 30) {
+      errorObj.userName = "Max length must be lower than 30";
+    }
 
     if (user.name === "") {
       errorObj.name = "Name is required";
@@ -91,7 +91,7 @@ function Register() {
                     className="email-input"
                     type="email"
                     name="email"
-                    autoComplete="false"
+                    autoComplete="off"
                     id="email"
                     placeholder="example@example.com"
                     defaultValue={user.email}
@@ -102,13 +102,13 @@ function Register() {
                   )}
                 </Col>
                 <Col lg="6">
-                  <Label for="username">Username</Label>
+                  <Label for="userName">Username</Label>
                   <Input
                     className="email-input"
                     type="text"
-                    name="username"
-                    autoComplete="false"
-                    id="username"
+                    name="userName"
+                    autoComplete="off"
+                    id="userName"
                     placeholder="Your username"
                     defaultValue={user.userName}
                     onChange={handleChangeLogin}
@@ -125,7 +125,7 @@ function Register() {
                   <Input
                     className="email-input"
                     type="text"
-                    autoComplete="false"
+                    autoComplete="off"
                     name="name"
                     id="name"
                     placeholder="Your name"
@@ -142,7 +142,7 @@ function Register() {
                     className="password-input mb-4"
                     type="password"
                     name="password"
-                    autoComplete="false"
+                    autoComplete="off"
                     id="password"
                     placeholder="Passowrd"
                     defaultValue={user.password}

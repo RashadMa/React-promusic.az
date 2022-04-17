@@ -18,6 +18,24 @@ function Products() {
   const showNewProducts = () => {
     return items?.slice(0, 3);
   };
+
+  const [prods, setProds] = React.useState({})
+
+  // const {items} = useSelector((state)=>state.productListReducer)
+  const [checked, setChecked] = React.useState(false)
+
+  const handleFilter = (e) => {
+    const {name, value} = e.target
+
+    setChecked(!checked)
+
+    setProds({...prods, [name]: name})
+    // console.log(name, value);
+  }
+
+  const handleItems = ()=>{
+    let products = items;
+  }
   // const showByBrands = () => {
   //   ret
   // }
@@ -27,7 +45,7 @@ function Products() {
     <Container>
       <Row>
         <Col lg="3">
-          <FilterProducts items={items} newProds={newProds} />
+          <FilterProducts items={items} newProds={newProds} handleFilter={handleFilter} checked={checked}/>
         </Col>
         <Col lg="9">
           <ProductCard items={items} />

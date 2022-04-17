@@ -4,7 +4,8 @@ import { BsCurrencyDollar, BsTrash } from "react-icons/bs";
 import { FiMinus } from "react-icons/fi";
 import { AiOutlinePlus } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
-import alertify from "alertifyjs";
+import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 function BasketItems(props) {
   const [total, setTotal] = useState(0);
@@ -12,7 +13,13 @@ function BasketItems(props) {
   const { cartItems } = useSelector((state) => state.cartReducer);
   const removeFromCart = (product) => {
     dispatch({ type: "REMOVE_FROM_CART", payload: product });
-    alertify.success(product.name + " Deleted from cart");
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: product.name + " Removed from cart",
+      showConfirmButton: false,
+      timer: 900,
+    });
   };
   React.useEffect(() => {
     let sum = 0;
@@ -127,7 +134,11 @@ function BasketItems(props) {
                       {total} <BsCurrencyDollar className="mb-1" />{" "}
                     </div>
                   </div>
-                  <button className="make-order-btn">Order</button>
+                  <div>
+                    <Link to={"/order"} className="make-order-btn">
+                      Order
+                    </Link>
+                  </div>
                   <div className="login-span d-flex justify-content-center mb-2">
                     *You must Register to order
                   </div>

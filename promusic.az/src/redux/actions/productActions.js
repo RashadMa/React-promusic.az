@@ -14,11 +14,14 @@ export const getProducts = () => (dispatch) => {
   return fetch(url)
     .then((response) => response.json())
     .then((result) => {
-      // setLoader(false)
       dispatch({
         type: actionTypes.GET_LOADING,
         payload: {isLoadingDone: true}
       })
       dispatch(getProductsSuccess(result))
+      dispatch({
+        type: "GET_PRODUCT_FILTERED",
+        payload: result
+      })
     });
 };

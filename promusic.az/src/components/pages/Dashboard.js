@@ -9,12 +9,12 @@ import BrandSlider from "../brands/brandsSlider/BrandSlider";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../../redux/actions/productActions";
 import Loading from "../common/loader/Loader";
-import alertify from "alertifyjs";
+import Swal from "sweetalert2";
 
 export default function Dashboard() {
   const { items } = useSelector((state) => state.productListReducer);
   const { cartItems } = useSelector((state) => state.cartReducer);
-  const {isLoadingDone} = useSelector(state => state.isLoadingReducer)
+  const { isLoadingDone } = useSelector((state) => state.isLoadingReducer);
 
   const [loader, setLoader] = useState(true);
   const dispatch = useDispatch();
@@ -27,14 +27,20 @@ export default function Dashboard() {
   }, [cartItems]);
   const addToCart = (product) => {
     dispatch({ type: "ADD_TO_CART", payload: product });
-    alertify.success(product.name + " Added to cart");
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: product.name + " Added to cart",
+      showConfirmButton: false,
+      timer: 900,
+    });
   };
   return (
     <div className="home my-4">
-      {!isLoadingDone ? (
+      {/* {!isLoadingDone ? (
         <Loading />
-      ): (
-        <Container>
+      ) : ( */}
+      <Container>
         <Row>
           <Col lg="9">
             <SliderData />
@@ -48,8 +54,7 @@ export default function Dashboard() {
         <FooterProductSlider addToCart={addToCart} products={items} />
         <BrandSlider />
       </Container>
-      )}
-    
+      {/* )} */}
     </div>
   );
 }

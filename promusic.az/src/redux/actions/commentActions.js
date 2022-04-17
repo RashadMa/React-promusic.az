@@ -1,4 +1,5 @@
 import axios from "axios";
+import Swal from "sweetalert2";
 import * as actionTypes from "./actionTypes";
 
 function getCommentsSuccess(comments) {
@@ -16,10 +17,17 @@ const postCommentSuccess = () => ({
   type: actionTypes.POST_COMMENT_SUCCESS,
 });
 
-export const postComment = (comment) => (dispatch) => {
+export const postComment = (text) => (dispatch) => {
   axios
-    .post("https://localhost:5001/member/api/Comments")
+    .post("https://localhost:5001/member/api/Comments", text)
     .then((response) => {
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Your comment successfully posted ",
+        showConfirmButton: false,
+        timer: 900,
+      });
       console.log("response");
       dispatch(postCommentSuccess);
       dispatch(getComments);
