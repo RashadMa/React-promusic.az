@@ -14,14 +14,12 @@ import ProductDetail from "../components/products/productCard/ProductDetail";
 import { BrowserRouter as Router } from "react-router-dom";
 import "./common.scss";
 import Cart from "../components/basket/Cart";
-import { useSelector } from "react-redux";
 import Order from "../components/order/Order";
 
 function App() {
-  const { isLoadingDone } = useSelector((state) => state.isLoadingReducer);
+  const [state] = React.useState(localStorage.getItem("token"));
   return (
     <Router>
-      {/* {isLoadingDone && <Header />} */}
       <Header />
       <Switch>
         <Route path="/" exact component={Dashboard} />
@@ -34,11 +32,11 @@ function App() {
         <Route path="/register" exact component={Register} />
         <Route path="/cart" exact component={Cart} />
         <Route path="/order" exact component={Order} />
+        {state === null && <Route path="/login" exact component={Login} />}
         <Route path="/search?:textQuery" exact component={Cart} />
         <Route path="/error" exact component={NotFound} />
         <Redirect to="/error" />
       </Switch>
-      {/* {isLoadingDone && <Footer />} */}
       <Footer />
     </Router>
   );
