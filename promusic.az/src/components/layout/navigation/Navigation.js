@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Col, Container, Row } from "reactstrap";
-import "./navigation.scss";
+import "./Navigation.scss";
 import { BsSearch, BsPerson } from "react-icons/bs";
 import { FiLogOut, FiShoppingBag } from "react-icons/fi";
 import LogoDark from "../../common/keyValuePair/LogoDark";

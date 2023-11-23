@@ -2,7 +2,7 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "./sliderData.scss";
+import "./SliderData.scss";
 import { settings } from "./settings";
 import { useDispatch, useSelector } from "react-redux";
 import { getSliders } from "../../../redux/actions/sliderActions";

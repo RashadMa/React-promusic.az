@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Container } from "reactstrap";
 import { getBrands } from "../../../redux/actions/brandActions";
-import "./brandDetail.scss";
+import "./BrandDetail.scss";
 import BrandSlider from "../brandsSlider/BrandSlider";
 import AboutBrand from "./AboutBrand";
 

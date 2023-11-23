@@ -2,7 +2,7 @@ import React from "react";
 import { Container } from "reactstrap";
 import LogoDark from "../../common/keyValuePair/LogoDark";
 import CategoryList from "../../categories/categoryList/CategoryList";
-import "./footer.scss";
+import "./Footer.scss";
 import { GrMail } from "react-icons/gr";
 import { BsFacebook, BsInstagram, BsYoutube } from "react-icons/bs";
 import Mail from "../../common/keyValuePair/Mail";

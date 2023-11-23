@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 import { getCategories } from "../../../redux/actions/categoryActions";
 import SubCategoryList from "../subCategories/SubCategoryList";
 
-import "./categoryCard.scss";
+import "./CategoryCard.scss";
 
 function CategoryCard() {
   const { items } = useSelector((state) => state.categoryListReducer);

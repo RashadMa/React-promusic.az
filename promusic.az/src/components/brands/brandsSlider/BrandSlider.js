@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import { getBrands } from "../../../redux/actions/brandActions";
 import "slick-carousel/slick/slick-theme.css";
-import "./brandSlider.scss";
+import "./BrandSlider.scss";
 import { Row } from "reactstrap";
 import { settings } from "./settings";
 import { useDispatch, useSelector } from "react-redux";

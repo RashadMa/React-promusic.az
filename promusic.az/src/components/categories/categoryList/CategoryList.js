@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { Col } from "reactstrap";
 import { getCategories } from "../../../redux/actions/categoryActions";
-import "./categoryList.scss";
+import "./CategoryList.scss";
 
 function CategoryList(props) {
   const { items } = useSelector((state) => state.categoryListReducer);
